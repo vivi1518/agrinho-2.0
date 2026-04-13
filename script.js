@@ -1,64 +1,42 @@
-// Aguarda o DOM carregar completamente
 document.addEventListener('DOMContentLoaded', () => {
-    
-    // 1. Menu Mobile (Hamburguer)
-    // Se você adicionar um botão com a classe 'mobile-menu' no HTML
-    const navLinks = document.querySelector('.nav-links');
-    const header = document.querySelector('.navbar');
+    const mobileBtn = document.getElementById('mobile-btn');
+    const navLinks = document.getElementById('nav-links');
+    const header = document.getElementById('header');
 
-    // 2. Scroll Suave para os links internos
-    const menuLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+    // Menu Mobile toggle
+    mobileBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
 
-    menuLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault(); // Previne o comportamento padrão
-
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-
-            if (targetSection) {
-                // Calcula a posição descontando a altura do header fixo
-                const headerHeight = header.offsetHeight;
-                const targetPosition = targetSection.offsetTop - headerHeight;
-
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth' // Rola de forma suave
-                });
-            }
+    // Fechar menu ao clicar em um link (importante para UX mobile)
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
         });
     });
 
-    // 3. Mudança visual do Header ao rolar a página
+    // Efeito de scroll no Header
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.style.padding = '0.5rem 0';
-            header.style.backgroundColor = '#ffffff';
-            header.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
+        if (window.scrollY > 100) {
+            header.style.padding = '0.8rem 0';
+            header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
         } else {
-            header.style.padding = '1rem 0';
-            header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            header.style.padding = '1.2rem 0';
+            header.style.backgroundColor = '#ffffff';
         }
     });
 
-    // 4. Animação simples de entrada (Cards aparecendo)
-    const observerOptions = {
-        threshold: 0.2
-    };
-
+    // Revelar elementos ao rolar (Scroll Reveal)
+    const observerOptions = { threshold: 0.1 };
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+                entry.target.classList.add('fade-in');
             }
         });
     }, observerOptions);
 
     document.querySelectorAll('.card').forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-        card.style.transition = 'all 0.6s ease-out';
         observer.observe(card);
     });
 });
