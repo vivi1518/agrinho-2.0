@@ -3,17 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agrinho 2026 - Sustentabilidade e Tecnologia</title>
+    <title>Agrinho 2026 | Inovação e Sustentabilidade</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header class="navbar">
+    <header class="navbar" id="header">
         <div class="container">
-            <h1 class="logo">Agrinho <span>2026</span></h1>
+            <h1 class="logo">Agrinho<span>2026</span></h1>
+            
+            <button class="mobile-menu" id="mobile-btn" aria-label="Abrir Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
             <nav>
-                <ul class="nav-links">
+                <ul class="nav-links" id="nav-links">
                     <li><a href="#inicio">Início</a></li>
                     <li><a href="#projeto">O Projeto</a></li>
                     <li><a href="#solucao">Solução</a></li>
@@ -26,23 +33,50 @@
     <main>
         <section id="inicio" class="hero">
             <div class="container">
-                <h2>Tecnologia no Campo para um Futuro Sustentável</h2>
-                <p>Explorando como a inovação pode transformar a agricultura e preservar o meio ambiente.</p>
-                <a href="#projeto" class="btn-primary">Saiba Mais</a>
+                <div class="hero-content">
+                    <h2>Tecnologia que cultiva o futuro.</h2>
+                    <p>Conectando inovação digital com as raízes da nossa terra para um amanhã mais sustentável.</p>
+                    <a href="#projeto" class="btn-primary">Explorar Projeto</a>
+                </div>
             </div>
         </section>
 
         <section id="projeto" class="content-section">
             <div class="container">
-                <h3>Sobre o Projeto</h3>
+                <div class="section-title">
+                    <h3>O Projeto</h3>
+                    <div class="underline"></div>
+                </div>
                 <div class="grid">
                     <div class="card">
-                        <h4>O Problema</h4>
-                        <p>Descrição clara e objetiva sobre o desafio encontrado no campo.</p>
+                        <div class="icon">🌱</div>
+                        <h4>Sustentabilidade</h4>
+                        <p>Práticas que respeitam o meio ambiente e garantem a longevidade do campo.</p>
                     </div>
                     <div class="card">
-                        <h4>Nossa Missão</h4>
-                        <p>O que pretendemos alcançar com esta iniciativa para o Agrinho 2026.</p>
+                        <div class="icon">💻</div>
+                        <h4>Tecnologia</h4>
+                        <p>Uso de ferramentas digitais para otimizar a produção e reduzir desperdícios.</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon">📚</div>
+                        <h4>Educação</h4>
+                        <p>Levar conhecimento transformador para as novas gerações de agricultores.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="solucao" class="content-section alt-bg">
+            <div class="container">
+                <div class="section-title">
+                    <h3>Nossa Solução</h3>
+                    <div class="underline"></div>
+                </div>
+                <div class="flex-info">
+                    <div class="text-box">
+                        <p>Aqui você descreve detalhadamente o que desenvolveu. Pode ser um app, um sistema de irrigação inteligente ou uma nova metodologia de ensino.</p>
+                        <p>Foque nos benefícios e em como isso resolve um problema real do dia a dia no campo.</p>
                     </div>
                 </div>
             </div>
@@ -51,9 +85,12 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 Projeto Agrinho - Desenvolvido por Vivi1518</p>
+            <p>&copy; 2026 Agrinho - Desenvolvido com foco em acessibilidade por Vivi1518</p>
         </div>
     </footer>
 
+    <script src="script.js"></script>
+</body>
+</html>
 </body>
 </html>
