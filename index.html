@@ -6,28 +6,47 @@
 <title>Agro Forte, Futuro Sustentável</title>
 
 <style>
+
+/* TRANSIÇÃO SUAVE */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background: #f4f9f4;
-  color: #333;
+/* CORES */
+:root {
+  --bg: #f4f9f4;
+  --text: #333;
+  --card: #ffffff;
+  --nav: #2e8b57;
 }
 
-/* MENU FIXO */
+body.dark {
+  --bg: #121212;
+  --text: #e4e4e4;
+  --card: #1e1e1e;
+  --nav: #1a1a1a;
+}
+
+/* BASE */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* NAV */
 nav {
   position: fixed;
   top: 0;
   width: 100%;
-  background: #2e8b57;
+  background: var(--nav);
   padding: 15px;
   text-align: center;
   z-index: 1000;
@@ -35,16 +54,27 @@ nav {
 
 nav a {
   color: white;
-  margin: 0 15px;
+  margin: 0 12px;
   text-decoration: none;
   font-weight: bold;
 }
 
-nav a:hover {
-  color: #c8facc;
+/* BOTÃO DARK MODE */
+.dark-btn {
+  background: none;
+  border: 2px solid white;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-left: 10px;
 }
 
-/* HERO (CAPA) */
+.dark-btn:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+/* HERO */
 .hero {
   height: 100vh;
   background: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef') center/cover no-repeat;
@@ -53,7 +83,6 @@ nav a:hover {
   align-items: center;
   text-align: center;
   color: white;
-  padding: 20px;
 }
 
 .hero div {
@@ -66,11 +95,6 @@ nav a:hover {
   font-size: 42px;
 }
 
-.hero p {
-  margin-top: 10px;
-  font-size: 18px;
-}
-
 .btn {
   display: inline-block;
   margin-top: 15px;
@@ -79,10 +103,6 @@ nav a:hover {
   color: white;
   border-radius: 20px;
   text-decoration: none;
-}
-
-.btn:hover {
-  background: #2e8b57;
 }
 
 /* SEÇÕES */
@@ -94,7 +114,6 @@ section {
 
 h2 {
   color: #2e8b57;
-  margin-bottom: 15px;
 }
 
 /* CARDS */
@@ -105,7 +124,7 @@ h2 {
 }
 
 .card {
-  background: white;
+  background: var(--card);
   padding: 20px;
   border-radius: 15px;
   flex: 1;
@@ -123,11 +142,6 @@ h2 {
 .galeria img {
   width: 32%;
   border-radius: 10px;
-  transition: 0.3s;
-}
-
-.galeria img:hover {
-  transform: scale(1.05);
 }
 
 /* VIDEO */
@@ -138,7 +152,7 @@ iframe {
 
 /* FOOTER */
 footer {
-  background: #2e8b57;
+  background: var(--nav);
   color: white;
   text-align: center;
   padding: 20px;
@@ -154,6 +168,7 @@ footer {
     font-size: 28px;
   }
 }
+
 </style>
 </head>
 
@@ -161,18 +176,19 @@ footer {
 
 <nav>
   <a href="#inicio">Início</a>
-  <a href="#agro">Agro Forte</a>
-  <a href="#sustentavel">Sustentabilidade</a>
+  <a href="#agro">Agro</a>
+  <a href="#sustentavel">Sustentável</a>
   <a href="#galeria">Galeria</a>
   <a href="#video">Vídeo</a>
+  <button id="themeToggle" class="dark-btn">🌙</button>
 </nav>
 
-<!-- CAPA -->
+<!-- HERO -->
 <section class="hero" id="inicio">
   <div>
     <h1>🌱 Agro Forte, Futuro Sustentável</h1>
-    <p>Produção, consciência e equilíbrio com a natureza</p>
-    <a href="#agro" class="btn">Saiba mais</a>
+    <p>Produção com consciência e respeito à natureza</p>
+    <a href="#agro" class="btn">Explorar</a>
   </div>
 </section>
 
@@ -183,17 +199,17 @@ footer {
   <div class="cards">
     <div class="card">
       <h3>Produção</h3>
-      <p>O agro é responsável pela produção de alimentos e pelo desenvolvimento econômico.</p>
+      <p>O agro sustenta a economia e garante alimentos para a população.</p>
     </div>
 
     <div class="card">
       <h3>Tecnologia</h3>
-      <p>Máquinas modernas e inovação aumentam a eficiência no campo.</p>
+      <p>Inovação no campo aumenta a produtividade com eficiência.</p>
     </div>
 
     <div class="card">
-      <h3>Trabalho</h3>
-      <p>Milhões de pessoas dependem do agro para viver e crescer.</p>
+      <h3>Desenvolvimento</h3>
+      <p>Gera empregos e fortalece comunidades rurais.</p>
     </div>
   </div>
 </section>
@@ -205,17 +221,17 @@ footer {
   <div class="cards">
     <div class="card">
       <h3>Preservação</h3>
-      <p>Cuidar do solo, da água e das florestas é essencial.</p>
+      <p>Proteger os recursos naturais é essencial para o futuro.</p>
     </div>
 
     <div class="card">
       <h3>Consciência</h3>
-      <p>Pequenas atitudes fazem grande diferença no planeta.</p>
+      <p>Pequenas atitudes ajudam a cuidar do planeta.</p>
     </div>
 
     <div class="card">
       <h3>Equilíbrio</h3>
-      <p>Produzir sem destruir é o desafio do futuro.</p>
+      <p>Produzir com responsabilidade é o caminho sustentável.</p>
     </div>
   </div>
 </section>
@@ -244,6 +260,39 @@ footer {
 <footer>
   <p>🌱 Agro Forte, Futuro Sustentável | 2026</p>
 </footer>
+
+<!-- SCRIPT DARK MODE -->
+<script>
+const btn = document.getElementById("themeToggle");
+
+function loadTheme() {
+  const saved = localStorage.getItem("theme");
+
+  if (saved) {
+    document.body.classList.toggle("dark", saved === "dark");
+  } else {
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    document.body.classList.toggle("dark", prefersDark);
+  }
+
+  updateIcon();
+}
+
+btn.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+
+  const isDark = document.body.classList.contains("dark");
+  localStorage.setItem("theme", isDark ? "dark" : "light");
+
+  updateIcon();
+});
+
+function updateIcon() {
+  btn.textContent = document.body.classList.contains("dark") ? "☀" : "🌙";
+}
+
+loadTheme();
+</script>
 
 </body>
 </html>
