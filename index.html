@@ -1,164 +1,226 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>Agro Forte, Futuro Sustentável</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agro Forte, Futuro Sustentável</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #eef7f0;
-    }
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    header {
-      background: linear-gradient(90deg, #2e8b57, #3cb371);
-      color: white;
-      text-align: center;
-      padding: 40px 20px;
-    }
+html {
+  scroll-behavior: smooth;
+}
 
-    header h1 {
-      margin: 0;
-      font-size: 36px;
-    }
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f4f9f4;
+  color: #333;
+}
 
-    header p {
-      font-size: 18px;
-      margin-top: 10px;
-    }
+/* MENU FIXO */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #2e8b57;
+  padding: 15px;
+  text-align: center;
+  z-index: 1000;
+}
 
-    nav {
-      background-color: #2e8b57;
-      text-align: center;
-      padding: 12px;
-    }
+nav a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
 
-    nav a {
-      color: white;
-      margin: 10px;
-      text-decoration: none;
-      font-weight: bold;
-    }
+nav a:hover {
+  color: #c8facc;
+}
 
-    nav a:hover {
-      color: #c8facc;
-    }
+/* HERO (CAPA) */
+.hero {
+  height: 100vh;
+  background: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef') center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 20px;
+}
 
-    section {
-      padding: 30px;
-      max-width: 900px;
-      margin: auto;
-    }
+.hero div {
+  background: rgba(0,0,0,0.5);
+  padding: 30px;
+  border-radius: 15px;
+}
 
-    h2 {
-      color: #2e8b57;
-    }
+.hero h1 {
+  font-size: 42px;
+}
 
-    .destaque {
-      background: white;
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      margin-bottom: 20px;
-    }
+.hero p {
+  margin-top: 10px;
+  font-size: 18px;
+}
 
-    .galeria {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+.btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: #3cb371;
+  color: white;
+  border-radius: 20px;
+  text-decoration: none;
+}
 
-    .galeria img {
-      width: 30%;
-      margin: 1%;
-      border-radius: 10px;
-      transition: transform 0.3s;
-    }
+.btn:hover {
+  background: #2e8b57;
+}
 
-    .galeria img:hover {
-      transform: scale(1.05);
-    }
+/* SEÇÕES */
+section {
+  padding: 80px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
 
-    iframe {
-      border-radius: 10px;
-    }
+h2 {
+  color: #2e8b57;
+  margin-bottom: 15px;
+}
 
-    footer {
-      background: #2e8b57;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      margin-top: 20px;
-    }
+/* CARDS */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
 
-    @media (max-width: 768px) {
-      .galeria img {
-        width: 100%;
-      }
-    }
-  </style>
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  flex: 1;
+  min-width: 250px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* GALERIA */
+.galeria {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.galeria img {
+  width: 32%;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.galeria img:hover {
+  transform: scale(1.05);
+}
+
+/* VIDEO */
+iframe {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* FOOTER */
+footer {
+  background: #2e8b57;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .galeria img {
+    width: 100%;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-<header>
-  <h1>🌱 Agro Forte, Futuro Sustentável</h1>
-  <p>Construindo hoje um amanhã mais verde e consciente</p>
-</header>
-
 <nav>
-  <a href="#sobre">Sobre</a>
-  <a href="#importancia">Importância</a>
+  <a href="#inicio">Início</a>
   <a href="#agro">Agro Forte</a>
-  <a href="#sustentavel">Futuro Sustentável</a>
+  <a href="#sustentavel">Sustentabilidade</a>
   <a href="#galeria">Galeria</a>
   <a href="#video">Vídeo</a>
 </nav>
 
-<section id="sobre">
-  <div class="destaque">
-    <h2>🌿 O que é o Agrinho?</h2>
-    <p>
-      O Agrinho é um programa educacional que promove a conscientização sobre sustentabilidade,
-      cidadania e meio ambiente. Ele mostra a importância da conexão entre o campo e a cidade,
-      incentivando atitudes responsáveis para um futuro melhor.
-    </p>
+<!-- CAPA -->
+<section class="hero" id="inicio">
+  <div>
+    <h1>🌱 Agro Forte, Futuro Sustentável</h1>
+    <p>Produção, consciência e equilíbrio com a natureza</p>
+    <a href="#agro" class="btn">Saiba mais</a>
   </div>
 </section>
 
-<section id="importancia">
-  <div class="destaque">
-    <h2>🌎 Importância do Projeto</h2>
-    <p>
-      O Agrinho ajuda a formar cidadãos conscientes, que entendem o valor da natureza e da produção agrícola.
-      Ele desenvolve o respeito ao meio ambiente e mostra como pequenas ações podem transformar o mundo.
-    </p>
-  </div>
-</section>
-
+<!-- AGRO -->
 <section id="agro">
-  <div class="destaque">
-    <h2>🚜 Agro Forte</h2>
-    <p>
-      O agronegócio é essencial para a economia e para a alimentação da população.
-      Um agro forte significa produção eficiente, tecnologia no campo e valorização dos agricultores,
-      garantindo alimentos de qualidade para todos.
-    </p>
+  <h2>🚜 Agro Forte</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Produção</h3>
+      <p>O agro é responsável pela produção de alimentos e pelo desenvolvimento econômico.</p>
+    </div>
+
+    <div class="card">
+      <h3>Tecnologia</h3>
+      <p>Máquinas modernas e inovação aumentam a eficiência no campo.</p>
+    </div>
+
+    <div class="card">
+      <h3>Trabalho</h3>
+      <p>Milhões de pessoas dependem do agro para viver e crescer.</p>
+    </div>
   </div>
 </section>
 
+<!-- SUSTENTABILIDADE -->
 <section id="sustentavel">
-  <div class="destaque">
-    <h2>♻️ Futuro Sustentável</h2>
-    <p>
-      Pensar no futuro é cuidar do presente. A sustentabilidade envolve preservar os recursos naturais,
-      reduzir desperdícios e adotar práticas que não prejudiquem o meio ambiente,
-      garantindo qualidade de vida para as próximas gerações.
-    </p>
+  <h2>♻️ Futuro Sustentável</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Preservação</h3>
+      <p>Cuidar do solo, da água e das florestas é essencial.</p>
+    </div>
+
+    <div class="card">
+      <h3>Consciência</h3>
+      <p>Pequenas atitudes fazem grande diferença no planeta.</p>
+    </div>
+
+    <div class="card">
+      <h3>Equilíbrio</h3>
+      <p>Produzir sem destruir é o desafio do futuro.</p>
+    </div>
   </div>
 </section>
 
+<!-- GALERIA -->
 <section id="galeria">
   <h2>📸 Galeria</h2>
 
@@ -169,18 +231,18 @@
   </div>
 </section>
 
+<!-- VIDEO -->
 <section id="video">
-  <h2>🎥 Vídeo sobre Sustentabilidade</h2>
+  <h2>🎥 Sustentabilidade na prática</h2>
 
-  <iframe width="100%" height="315"
+  <iframe height="315"
     src="https://www.youtube.com/embed/PJ50lwwy_hs"
     allowfullscreen>
   </iframe>
-
 </section>
 
 <footer>
-  <p>Projeto Agrinho 2026 🌱 | Agro Forte, Futuro Sustentável</p>
+  <p>🌱 Agro Forte, Futuro Sustentável | 2026</p>
 </footer>
 
 </body>
