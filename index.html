@@ -2,26 +2,36 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Projeto Agrinho</title>
+  <title>Agro Forte, Futuro Sustentável</title>
 
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background-color: #f0f8f5;
+      background: #eef7f0;
     }
 
     header {
-      background-color: #2e8b57;
+      background: linear-gradient(90deg, #2e8b57, #3cb371);
       color: white;
       text-align: center;
-      padding: 20px;
+      padding: 40px 20px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 36px;
+    }
+
+    header p {
+      font-size: 18px;
+      margin-top: 10px;
     }
 
     nav {
-      background-color: #3cb371;
+      background-color: #2e8b57;
       text-align: center;
-      padding: 10px;
+      padding: 12px;
     }
 
     nav a {
@@ -32,32 +42,54 @@
     }
 
     nav a:hover {
-      text-decoration: underline;
+      color: #c8facc;
     }
 
     section {
-      padding: 20px;
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
     }
 
     h2 {
       color: #2e8b57;
     }
 
+    .destaque {
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+
+    .galeria {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
     .galeria img {
       width: 30%;
       margin: 1%;
       border-radius: 10px;
+      transition: transform 0.3s;
     }
 
-    footer {
-      background-color: #2e8b57;
-      color: white;
-      text-align: center;
-      padding: 10px;
+    .galeria img:hover {
+      transform: scale(1.05);
     }
 
     iframe {
       border-radius: 10px;
+    }
+
+    footer {
+      background: #2e8b57;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 20px;
     }
 
     @media (max-width: 768px) {
@@ -71,40 +103,60 @@
 <body>
 
 <header>
-  <h1>🌱 Projeto Agrinho</h1>
-  <p>Educação, Sustentabilidade e Cidadania</p>
+  <h1>🌱 Agro Forte, Futuro Sustentável</h1>
+  <p>Construindo hoje um amanhã mais verde e consciente</p>
 </header>
 
 <nav>
   <a href="#sobre">Sobre</a>
   <a href="#importancia">Importância</a>
-  <a href="#sustentabilidade">Sustentabilidade</a>
+  <a href="#agro">Agro Forte</a>
+  <a href="#sustentavel">Futuro Sustentável</a>
   <a href="#galeria">Galeria</a>
   <a href="#video">Vídeo</a>
 </nav>
 
 <section id="sobre">
-  <h2>🌿 O que é o Agrinho?</h2>
-  <p>
-    O Agrinho é um programa educacional que ensina sobre meio ambiente, cidadania e sustentabilidade.
-    Ele busca conscientizar os alunos sobre a importância da relação entre o campo e a cidade.
-  </p>
+  <div class="destaque">
+    <h2>🌿 O que é o Agrinho?</h2>
+    <p>
+      O Agrinho é um programa educacional que promove a conscientização sobre sustentabilidade,
+      cidadania e meio ambiente. Ele mostra a importância da conexão entre o campo e a cidade,
+      incentivando atitudes responsáveis para um futuro melhor.
+    </p>
+  </div>
 </section>
 
 <section id="importancia">
-  <h2>🌎 Importância</h2>
-  <p>
-    O projeto ajuda a desenvolver valores como responsabilidade, respeito à natureza e consciência ambiental.
-    Ele também mostra como nossas atitudes impactam o planeta.
-  </p>
+  <div class="destaque">
+    <h2>🌎 Importância do Projeto</h2>
+    <p>
+      O Agrinho ajuda a formar cidadãos conscientes, que entendem o valor da natureza e da produção agrícola.
+      Ele desenvolve o respeito ao meio ambiente e mostra como pequenas ações podem transformar o mundo.
+    </p>
+  </div>
 </section>
 
-<section id="sustentabilidade">
-  <h2>♻️ Sustentabilidade</h2>
-  <p>
-    A sustentabilidade é essencial para garantir o futuro das próximas gerações.
-    Pequenas ações como economizar água, reciclar e cuidar do meio ambiente fazem grande diferença.
-  </p>
+<section id="agro">
+  <div class="destaque">
+    <h2>🚜 Agro Forte</h2>
+    <p>
+      O agronegócio é essencial para a economia e para a alimentação da população.
+      Um agro forte significa produção eficiente, tecnologia no campo e valorização dos agricultores,
+      garantindo alimentos de qualidade para todos.
+    </p>
+  </div>
+</section>
+
+<section id="sustentavel">
+  <div class="destaque">
+    <h2>♻️ Futuro Sustentável</h2>
+    <p>
+      Pensar no futuro é cuidar do presente. A sustentabilidade envolve preservar os recursos naturais,
+      reduzir desperdícios e adotar práticas que não prejudiquem o meio ambiente,
+      garantindo qualidade de vida para as próximas gerações.
+    </p>
+  </div>
 </section>
 
 <section id="galeria">
@@ -115,22 +167,20 @@
     <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399">
     <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6">
   </div>
-
 </section>
 
 <section id="video">
-  <h2>🎥 Vídeo</h2>
+  <h2>🎥 Vídeo sobre Sustentabilidade</h2>
 
   <iframe width="100%" height="315"
     src="https://www.youtube.com/embed/PJ50lwwy_hs"
-    title="Vídeo Agrinho"
     allowfullscreen>
   </iframe>
 
 </section>
 
 <footer>
-  <p>Projeto Agrinho 2026 🌱</p>
+  <p>Projeto Agrinho 2026 🌱 | Agro Forte, Futuro Sustentável</p>
 </footer>
 
 </body>
