@@ -1,31 +1,56 @@
-body {
+/* RESET */
+* {
   margin: 0;
-  font-family: Arial;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY */
+body {
+  font-family: Arial, sans-serif;
   background: #111;
   color: white;
 }
 
+/* HEADER */
 header {
   display: flex;
-  justify-content: space-between;
-  padding: 15px;
+  flex-direction: column; /* empilha no celular */
+  align-items: center;
+  padding: 10px;
   background: #000;
   position: fixed;
   width: 100%;
+  z-index: 1000;
+}
+
+header h1 {
+  margin-bottom: 5px;
+}
+
+/* MENU CENTRALIZADO */
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
 }
 
 nav a {
-  margin: 10px;
   color: white;
   text-decoration: none;
+  font-size: 14px;
 }
 
-section {
-  padding: 100px 20px;
-  max-width: 1000px;
-  margin: auto;
+/* BOTÃO */
+#toggleTema {
+  margin-top: 5px;
+  background: none;
+  border: none;
+  color: white;
 }
 
+/* BANNER */
 .banner {
   height: 100vh;
   position: relative;
@@ -37,37 +62,92 @@ section {
   object-fit: cover;
 }
 
-.texto {
+/* TEXTO CENTRALIZADO */
+.overlay {
   position: absolute;
-  top: 40%;
-  left: 10%;
+  top: 50%;
+  left: 50%;
+  width: 90%;
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
 
+.overlay h2 {
+  font-size: 22px;
+}
+
+.overlay p {
+  font-size: 14px;
+}
+
+/* BOTÃO */
+.btn {
+  margin-top: 15px;
+  display: inline-block;
+  padding: 8px 16px;
+  background: #4CAF50;
+  border-radius: 8px;
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+}
+
+/* SEÇÕES */
+.container {
+  padding: 80px 15px;
+  max-width: 100%;
+  text-align: center;
+}
+
+/* CARDS (EMPILHADOS NO CELULAR) */
 .cards {
   display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
 }
 
 .card {
+  width: 90%;
   background: #222;
-  padding: 20px;
+  padding: 15px;
   border-radius: 10px;
-  flex: 1;
-  min-width: 250px;
 }
 
-.video-container {
-  margin: 20px 0;
-}
-
-.video-container iframe {
+/* VÍDEO RESPONSIVO */
+.video iframe {
   width: 100%;
-  height: 400px;
+  height: 220px;
 }
 
+/* FOOTER */
 footer {
   text-align: center;
-  padding: 20px;
+  padding: 15px;
   background: #000;
+}
+
+/* 🌐 RESPONSIVO PARA TELAS MAIORES */
+@media (min-width: 768px) {
+
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  nav {
+    flex-wrap: nowrap;
+  }
+
+  .cards {
+    flex-direction: row;
+  }
+
+  .card {
+    width: 250px;
+  }
+
+  .video iframe {
+    height: 400px;
+  }
 }
