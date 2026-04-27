@@ -1,5 +1,8 @@
-const botao = document.getElementById("toggleTema");
-
-botao.addEventListener("click", () => {
-  document.body.classList.toggle("light");
+// efeito simples de rolagem suave
+document.querySelectorAll('nav a').forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute('href'))
+      .scrollIntoView({ behavior: 'smooth' });
+  });
 });
