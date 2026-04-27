@@ -2,6 +2,7 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Agro Forte - Futuro Sustentável</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -10,6 +11,7 @@
 
 <header>
   <h1>🌱 Agro Forte</h1>
+
   <nav>
     <a href="#home">Início</a>
     <a href="#sobre">Sobre</a>
@@ -17,13 +19,16 @@
     <a href="#sustentabilidade">Sustentabilidade</a>
     <a href="#videos">Vídeos</a>
   </nav>
-  <button onclick="modoEscuro()">🌙</button>
+
+  <button id="toggleTema">🌙</button>
 </header>
 
 <section id="home" class="banner">
   <video autoplay muted loop>
     <source src="assets/videos/agro.mp4" type="video/mp4">
+    Seu navegador não suporta vídeo.
   </video>
+
   <div class="texto">
     <h2>Agro forte, futuro sustentável</h2>
     <p>Inovação, tecnologia e respeito ao meio ambiente</p>
@@ -34,35 +39,38 @@
   <h2>🌾 Sobre o Agro</h2>
   <p>
     O agronegócio conecta campo e cidade, garantindo alimentos,
-    economia e desenvolvimento sustentável.
+    desenvolvimento econômico e sustentabilidade.
   </p>
 </section>
 
 <section id="tecnologia">
   <h2>🤖 Tecnologia no Agro</h2>
+
   <div class="cards">
     <div class="card">🚁 Drones monitoram plantações</div>
     <div class="card">📊 Sensores analisam o solo</div>
-    <div class="card">🤖 IA melhora a produção</div>
+    <div class="card">🤖 Inteligência artificial otimiza a produção</div>
   </div>
 </section>
 
 <section id="sustentabilidade">
   <h2>🌱 Sustentabilidade</h2>
   <p>
-    Técnicas sustentáveis ajudam a preservar o meio ambiente
-    enquanto aumentam a produção.
+    O uso consciente dos recursos naturais garante produtividade
+    sem prejudicar o meio ambiente.
   </p>
 </section>
 
 <section id="videos">
   <h2>🎥 Vídeos</h2>
 
-  <iframe width="560" height="315"
-    src="https://www.youtube.com/embed/2iK0D0hYf9A"
-    allowfullscreen>
-  </iframe>
-
+  <div class="video-container">
+    <iframe 
+      src="https://www.youtube.com/embed/2iK0D0hYf9A"
+      title="Agro tecnologia"
+      allowfullscreen>
+    </iframe>
+  </div>
 </section>
 
 <footer>
