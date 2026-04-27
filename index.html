@@ -1,56 +1,171 @@
-<section id="agro">
-  <h1>🌱 Agro Forte, Futuro Sustentável</h1>
-  <p>Produção com consciência e respeito à natureza</p>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agro Forte - Futuro Sustentável</title>
 
-  <p>
-    O agro é essencial para a vida de todos. É dele que vêm os alimentos que chegam à nossa mesa todos os dias. 
-    Mas produzir não é apenas colher — é também cuidar da terra, da água e de todo o meio ambiente.
-  </p>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
-  <p>
-    Um agro forte é aquele que cresce com responsabilidade, utilizando práticas que respeitam a natureza 
-    e garantem que as futuras gerações também possam produzir e viver com qualidade.
-  </p>
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #0f172a;
+    color: white;
+    transition: 0.4s;
+}
 
-  <h2>🌾 O que é o Agro Sustentável?</h2>
-  <p>
-    O agro sustentável busca equilibrar produção e preservação. Isso significa produzir alimentos de forma eficiente, 
-    sem causar danos ao meio ambiente, protegendo os recursos naturais e valorizando o trabalho no campo.
-  </p>
+header {
+    background: linear-gradient(90deg, #16a34a, #22c55e);
+    padding: 20px;
+    text-align: center;
+}
 
-  <h2>🚜 Práticas Sustentáveis no Campo</h2>
-  <ul>
-    <li>Uso consciente da água</li>
-    <li>Rotação de culturas para preservar o solo</li>
-    <li>Redução do uso de agrotóxicos</li>
-    <li>Uso de energias renováveis, como a solar</li>
-    <li>Proteção de nascentes e áreas verdes</li>
-  </ul>
+button {
+    background: #0f172a;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+}
 
-  <h2>🌎 Impactos Positivos</h2>
-  <p>
-    Quando o agro é sustentável, todos ganham. O meio ambiente é preservado, os alimentos são mais saudáveis 
-    e a produção se torna mais eficiente e duradoura.
-  </p>
+section {
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: auto;
+}
 
-  <p>
-    Além disso, essas práticas ajudam a reduzir a poluição, conservar o solo e manter o equilíbrio da natureza.
-  </p>
+h1, h2 {
+    margin-bottom: 20px;
+}
 
-  <h2>💡 O que podemos fazer?</h2>
-  <p>
-    Cada pessoa pode contribuir para um futuro melhor. Pequenas atitudes fazem grande diferença:
-  </p>
+img {
+    width: 100%;
+    border-radius: 15px;
+    margin-top: 20px;
+    transition: 0.3s;
+}
 
-  <ul>
-    <li>Evitar desperdício de alimentos</li>
-    <li>Valorizar produtores locais</li>
-    <li>Escolher produtos sustentáveis</li>
-    <li>Cuidar do meio ambiente no dia a dia</li>
-  </ul>
+img:hover {
+    transform: scale(1.03);
+}
 
-  <p>
-    O futuro depende das escolhas que fazemos hoje. Apoiar o agro sustentável é cuidar do planeta e garantir 
-    uma vida melhor para todos.
-  </p>
+.card {
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 20px;
+    margin-top: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    animation: fadeUp 1s ease;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* modo claro */
+.light {
+    background: #f1f5f9;
+    color: #0f172a;
+}
+
+.light .card {
+    background: white;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    background: #020617;
+    margin-top: 40px;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+    <h1>🌱 Agro Forte, Futuro Sustentável</h1>
+    <button onclick="toggleMode()">🌙 / ☀️</button>
+</header>
+
+<section class="card">
+    <h2>O Poder do Agronegócio</h2>
+    <p>
+    O agronegócio é um dos pilares do desenvolvimento do Brasil, responsável por impulsionar a economia,
+    gerar empregos e garantir a segurança alimentar. Mais do que produzir, o agro atual busca inovação,
+    tecnologia e sustentabilidade para construir um futuro equilibrado e responsável.
+    </p>
+    <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef">
 </section>
+
+<section class="card">
+    <h2>O que é o Agro?</h2>
+    <p>
+    O agronegócio vai muito além do campo: ele envolve toda a cadeia produtiva, desde o plantio até a distribuição
+    dos alimentos. Esse setor desempenha um papel essencial no desenvolvimento econômico e social,
+    conectando tecnologia, produção e sustentabilidade.
+    </p>
+    <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6">
+</section>
+
+<section class="card">
+    <h2>Sustentabilidade no Agro</h2>
+    <p>
+    A agricultura sustentável busca produzir alimentos de forma eficiente, respeitando o meio ambiente
+    e garantindo recursos para as futuras gerações.
+    </p>
+
+    <p>
+    O agro moderno investe em soluções inteligentes que aumentam a produtividade sem comprometer
+    a natureza.
+    </p>
+    <img src="https://images.unsplash.com/photo-1472145246862-b24cf25c4a36">
+</section>
+
+<section class="card">
+    <h2>Tecnologia no Campo</h2>
+    <p>
+    A tecnologia revolucionou o agronegócio. Com drones, inteligência artificial e monitoramento digital,
+    os produtores conseguem maior eficiência e menos desperdício.
+    </p>
+    <img src="https://images.unsplash.com/photo-1598514983318-2f64f8f4796c">
+</section>
+
+<section class="card">
+    <h2>Construindo o Futuro</h2>
+    <p>
+    O futuro do agronegócio depende da sustentabilidade, inovação e responsabilidade social.
+    Investir em tecnologia e preservação ambiental é essencial para garantir qualidade de vida
+    às próximas gerações.
+    </p>
+</section>
+
+<section>
+    <p style="text-align:center; font-size:18px;">
+        🌱 "Produzir hoje com responsabilidade é garantir o amanhã."
+    </p>
+</section>
+
+<footer>
+    <p>Projeto Agrinho 2026 • Agro Forte Futuro Sustentável</p>
+</footer>
+
+<script>
+function toggleMode() {
+    document.body.classList.toggle("light");
+}
+</script>
+
+</body>
+</html>
