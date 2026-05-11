@@ -1,4 +1,4 @@
-/* Fontes e reset */
+/* Reset e fontes */
 * {
     margin: 0;
     padding: 0;
@@ -97,13 +97,16 @@ nav {
 }
 
 /* Sobre */
-.sobre {
+.sobre, .iniciativas, .impacto, .contato {
     padding: 80px 5%;
-    background: #f1f8e9;
     text-align: center;
 }
 
-.sobre h2 {
+.sobre {
+    background: #f1f8e9;
+}
+
+.sobre h2, .iniciativas h2, .impacto h2, .contato h2 {
     font-size: 2.5rem;
     color: #2e7d32;
     margin-bottom: 20px;
@@ -115,14 +118,14 @@ nav {
 }
 
 /* Cards */
-.cards {
+.cards, .initiative-cards {
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
     justify-content: center;
 }
 
-.card {
+.card, .initiative-card {
     background: white;
     padding: 30px;
     border-radius: 15px;
@@ -132,28 +135,29 @@ nav {
     text-align: center;
 }
 
-.card img {
+.card img, .initiative-card img {
     width: 60px;
     margin-bottom: 15px;
+    border-radius: 10px;
 }
 
-.card:hover {
+.initiative-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.card:hover, .initiative-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 35px rgba(0,0,0,0.2);
 }
 
-.card h3 {
+.card h3, .initiative-card h3 {
     margin-bottom: 10px;
     color: #2e7d32;
 }
 
 /* Impacto */
-.impacto {
-    padding: 80px 5%;
-    background: #e8f5e9;
-    text-align: center;
-}
-
 .stats {
     display: flex;
     flex-wrap: wrap;
@@ -187,11 +191,6 @@ nav {
 }
 
 /* Contato */
-.contato {
-    padding: 80px 5%;
-    text-align: center;
-}
-
 .contato form {
     max-width: 500px;
     margin: auto;
@@ -202,4 +201,46 @@ nav {
 
 input, textarea {
     padding: 15px;
-    border-radius: 10
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+button {
+    background: #2e7d32;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #4caf50;
+}
+
+/* Footer */
+footer {
+    background: #2e7d32;
+    color: white;
+    padding: 20px 5%;
+    text-align: center;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .cards, .initiative-cards, .stats {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+    }
+}
