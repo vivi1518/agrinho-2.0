@@ -96,8 +96,8 @@ nav {
     background: #c8e6c9;
 }
 
-/* Sobre */
-.sobre, .iniciativas, .impacto, .contato {
+/* Seções */
+section {
     padding: 80px 5%;
     text-align: center;
 }
@@ -106,26 +106,26 @@ nav {
     background: #f1f8e9;
 }
 
-.sobre h2, .iniciativas h2, .impacto h2, .contato h2 {
+h2 {
     font-size: 2.5rem;
     color: #2e7d32;
     margin-bottom: 20px;
 }
 
-.sobre p {
+p {
     max-width: 700px;
     margin: 0 auto 50px auto;
 }
 
 /* Cards */
-.cards, .initiative-cards {
+.cards, .initiative-cards, .stats {
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
     justify-content: center;
 }
 
-.card, .initiative-card {
+.card, .initiative-card, .stat {
     background: white;
     padding: 30px;
     border-radius: 15px;
@@ -147,47 +147,24 @@ nav {
     object-fit: cover;
 }
 
-.card:hover, .initiative-card:hover {
+.card h3, .initiative-card h3, .stat h3 {
+    margin-bottom: 10px;
+    color: #2e7d32;
+}
+
+.card:hover, .initiative-card:hover, .stat:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 35px rgba(0,0,0,0.2);
 }
 
-.card h3, .initiative-card h3 {
-    margin-bottom: 10px;
-    color: #2e7d32;
-}
-
-/* Impacto */
-.stats {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: center;
-    margin-top: 40px;
-}
-
+/* Stats */
 .stat {
-    background: white;
     padding: 40px;
-    border-radius: 15px;
     width: 220px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    transition: 0.3s;
-}
-
-.stat h3 {
-    font-size: 2.5rem;
-    color: #2e7d32;
-    margin-bottom: 10px;
 }
 
 .stat p {
     font-weight: bold;
-}
-
-.stat:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
 }
 
 /* Contato */
