@@ -1,4 +1,5 @@
-document.getElementById('contactForm').addEventListener('submit', function(e){
+// Formulário de contato simples
+document.getElementById('contactForm').addEventListener('submit', function(e) {
     e.preventDefault();
     const msg = document.getElementById('msg');
     msg.textContent = "Obrigado pelo contato! Em breve responderemos.";
