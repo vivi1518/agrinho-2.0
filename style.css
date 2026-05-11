@@ -1,8 +1,12 @@
-/* Fontes */
-body {
-    font-family: 'Roboto', sans-serif;
+/* Fontes e reset */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
     color: #333;
 }
 
@@ -52,8 +56,8 @@ nav {
     justify-content: center;
     align-items: center;
     position: relative;
-    color: white;
     text-align: center;
+    color: white;
 }
 
 .hero::after {
@@ -125,6 +129,7 @@ nav {
     width: 280px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     transition: 0.3s;
+    text-align: center;
 }
 
 .card img {
@@ -197,46 +202,4 @@ nav {
 
 input, textarea {
     padding: 15px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    font-size: 1rem;
-}
-
-button {
-    background: #2e7d32;
-    color: white;
-    padding: 15px;
-    border: none;
-    border-radius: 50px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-button:hover {
-    background: #4caf50;
-}
-
-/* Footer */
-footer {
-    background: #2e7d32;
-    color: white;
-    padding: 20px 5%;
-    text-align: center;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    .cards, .stats {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero p {
-        font-size: 1.2rem;
-    }
-}
+    border-radius: 10
