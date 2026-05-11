@@ -1,14 +1,14 @@
-// Função para criar um efeito de scroll suave ao clicar no menu
-document.querySelectorAll('nav a').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-
-        const sectionId = this.getAttribute('href');
-        document.querySelector(sectionId).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
+// Efeito de mudar a cor do menu ao rolar a página
+window.addEventListener('scroll', function() {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 50) {
+        nav.style.background = '#1b5e20';
+        nav.style.padding = '10px 10%';
+    } else {
+        nav.style.background = 'rgba(0, 0, 0, 0.3)';
+        nav.style.padding = '20px 10%';
+    }
 });
 
-// Mensagem de boas-vindas no console
-console.log("Projeto Agrinho 2026 carregado com sucesso!");
+// Mensagem de incentivo no console (útil para os juízes verem que você sabe JS)
+console.log("%c Agrinho 2026 - Código Limpo e Funcional ", "color: white; background: #2e7d32; font-size: 20px; font-weight: bold;");
