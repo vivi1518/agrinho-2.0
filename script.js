@@ -12,15 +12,22 @@ accordionHeaders.forEach((header) => {
     const content =
       header.nextElementSibling;
 
-    if (content.style.maxHeight) {
+    const isOpen =
+      content.style.maxHeight;
 
-      content.style.maxHeight = null;
+    // Fecha todos
 
-    } else {
+    document
+      .querySelectorAll(".accordion-content")
+      .forEach((item) => {
+        item.style.maxHeight = null;
+      });
 
+    // Abre o atual
+
+    if (!isOpen) {
       content.style.maxHeight =
         content.scrollHeight + "px";
-
     }
 
   });
@@ -96,19 +103,27 @@ let currentFontSize = 100;
 
 increaseFontButton.addEventListener("click", () => {
 
-  currentFontSize += 10;
+  if (currentFontSize < 150) {
 
-  document.body.style.fontSize =
-    currentFontSize + "%";
+    currentFontSize += 10;
+
+    document.body.style.fontSize =
+      currentFontSize + "%";
+
+  }
 
 });
 
 decreaseFontButton.addEventListener("click", () => {
 
-  currentFontSize -= 10;
+  if (currentFontSize > 80) {
 
-  document.body.style.fontSize =
-    currentFontSize + "%";
+    currentFontSize -= 10;
+
+    document.body.style.fontSize =
+      currentFontSize + "%";
+
+  }
 
 });
 
@@ -152,6 +167,7 @@ startReadingButton.addEventListener("click", () => {
 
   speech.lang = "pt-BR";
   speech.rate = 1;
+  speech.pitch = 1;
 
   window.speechSynthesis.speak(speech);
 
