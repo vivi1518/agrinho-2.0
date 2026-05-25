@@ -1,73 +1,131 @@
+// =========================================
 // ACCORDION
+// =========================================
 
-const accordionButtons = document.querySelectorAll(".accordion-btn");
+const accordionHeaders = document.querySelectorAll(".accordion-header");
 
-accordionButtons.forEach(button => {
+accordionHeaders.forEach((header) => {
 
-  button.addEventListener("click", () => {
+  header.addEventListener("click", () => {
 
-    const content = button.nextElementSibling;
+    const content = header.nextElementSibling;
 
-    content.style.display =
-      content.style.display === "block"
-      ? "none"
-      : "block";
+    if (content.style.maxHeight) {
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
 
   });
 
 });
 
-// DARK MODE
+// =========================================
+// COMENTÁRIOS
+// =========================================
 
-const toggleTheme = document.getElementById("toggle-theme");
+const commentButton = document.getElementById("send-comment");
+const commentInput = document.getElementById("comment-input");
+const commentList = document.getElementById("comment-list");
 
-toggleTheme.addEventListener("click", () => {
-  document.body.classList.toggle("dark-mode");
-});
+commentButton.addEventListener("click", () => {
 
-// AUMENTAR FONTE
+  const text = commentInput.value.trim();
 
-let currentFontSize = 16;
+  if (text === "") {
+    alert("Digite um comentário.");
+    return;
+  }
 
-document.getElementById("increase-font")
-.addEventListener("click", () => {
+  const comment = document.createElement("div");
+  comment.classList.add("comment-item");
 
-  currentFontSize += 1;
-  document.body.style.fontSize = currentFontSize + "px";
+  comment.textContent = text;
 
-});
+  commentList.prepend(comment);
 
-// DIMINUIR FONTE
-
-document.getElementById("decrease-font")
-.addEventListener("click", () => {
-
-  currentFontSize -= 1;
-  document.body.style.fontSize = currentFontSize + "px";
+  commentInput.value = "";
 
 });
 
+// =========================================
+// FORMULÁRIO
+// =========================================
+
+const form = document.getElementById("seminar-form");
+
+form.addEventListener("submit", (event) => {
+
+  event.preventDefault();
+
+  alert("Inscrição realizada com sucesso!");
+
+  form.reset();
+
+});
+
+// =========================================
+// ACESSIBILIDADE - FONTE
+// =========================================
+
+const increaseFontBtn = document.getElementById("increase-font");
+const decreaseFontBtn = document.getElementById("decrease-font");
+
+let currentFontSize = 100;
+
+increaseFontBtn.addEventListener("click", () => {
+
+  currentFontSize += 10;
+
+  document.body.style.fontSize = currentFontSize + "%";
+
+});
+
+decreaseFontBtn.addEventListener("click", () => {
+
+  currentFontSize -= 10;
+
+  document.body.style.fontSize = currentFontSize + "%";
+
+});
+
+// =========================================
+// MODO ESCURO/CLARO
+// =========================================
+
+const toggleThemeBtn = document.getElementById("toggle-theme");
+
+toggleThemeBtn.addEventListener("click", () => {
+
+  document.body.classList.toggle("light-mode");
+
+});
+
+// =========================================
 // LEITURA POR VOZ
+// =========================================
+
+const startReadingBtn = document.getElementById("start-reading");
+const stopReadingBtn = document.getElementById("stop-reading");
 
 let speech;
 
-document.getElementById("read-page")
-.addEventListener("click", () => {
+startReadingBtn.addEventListener("click", () => {
 
-  const content = document.getElementById("conteudo-principal").innerText;
+  const mainContent = document.getElementById("main-content");
 
-  speech = new SpeechSynthesisUtterance(content);
+  const text = mainContent.innerText;
+
+  speech = new SpeechSynthesisUtterance(text);
 
   speech.lang = "pt-BR";
+  speech.rate = 1;
 
   window.speechSynthesis.speak(speech);
 
 });
 
-// PARAR LEITURA
-
-document.getElementById("stop-reading")
-.addEventListener("click", () => {
+stopReadingBtn.addEventListener("click", () => {
 
   window.speechSynthesis.cancel();
 
