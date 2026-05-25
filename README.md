@@ -1,94 +1,26 @@
-# Agro Forte • Futuro Sustentável
+# Agro Forte Futuro Sustentável
 
 ## Tema da página
-Página moderna, tecnológica e responsiva sobre:
-- Agricultura sustentável
-- Inteligência Artificial no campo
-- Inovação agrícola
-- Futuro do agronegócio brasileiro
+Página moderna, tecnológica e sustentável sobre o futuro do agronegócio com Inteligência Artificial no campo.
 
 ---
 
 ## Objetivo da página
-Apresentar de forma visual, moderna e acessível como a tecnologia,
-a automação e a inovação estão transformando o agro brasileiro,
-fortalecendo a produtividade e a sustentabilidade no campo.
+Apresentar como a tecnologia agrícola e a Inteligência Artificial estão transformando o agronegócio brasileiro através de:
+- inovação;
+- sustentabilidade;
+- automação;
+- produtividade;
+- agricultura inteligente;
+- preservação ambiental.
 
 ---
 
-## Funcionalidades da página
+## Estrutura do projeto
 
-- Hero section moderna
-- Cards informativos
-- Accordion interativo
-- Espaços reservados para imagens
-- Formulário de inscrição
-- Área de comentários
-- Sistema de acessibilidade:
-  - aumentar fonte
-  - diminuir fonte
-  - modo escuro/claro
-  - leitura por voz
-  - parar leitura
+O projeto possui 3 arquivos principais:
 
----
-
-## Tecnologias utilizadas
-
-- HTML5
-- CSS3
-- JavaScript
-- Flexbox
-- CSS Grid
-- SpeechSynthesis API
-
----
-
-## Estrutura dos arquivos
-
-/index.html
-/style.css
-/script.js
-/README.md
-
----
-
-## Instruções de uso
-
-1. Salve os arquivos:
-- index.html
-- style.css
-- script.js
-
-2. Crie uma pasta para imagens.
-
-3. Adicione suas imagens utilizando os nomes:
-- Foto1.png
-- Foto2.png
-- Foto3.png
-- Foto4.png
-- Foto5.png
-
-4. Abra o arquivo:
+```bash
 index.html
-
-em qualquer navegador moderno.
-
----
-
-## Responsividade
-
-A página foi desenvolvida para funcionar em:
-- celulares
-- tablets
-- notebooks
-- desktops
-- monitores ultrawide
-
----
-
-## Referências
-
-https://www.bemagro.com/beneficios-inteligencia-artificial-no-campo/
-
-https://www.agrolink.com.br/noticias/o-campo-conectado--como-a-ia-vem-transformando-o-agro_514351.html
+style.css
+script.js
