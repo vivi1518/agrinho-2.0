@@ -26,14 +26,13 @@
   --bg-light: #eef6ff;
 
   --shadow:
-    0 10px 30px rgba(0,0,0,0.15);
+    0 10px 30px rgba(0, 0, 0, 0.15);
 
   --radius-lg: 24px;
   --radius-md: 18px;
   --radius-sm: 12px;
 
   --transition: 0.3s ease;
-
 }
 
 /* ========================================= */
@@ -73,7 +72,7 @@ img {
 }
 
 /* ========================================= */
-/* UTILIDADES */
+/* SEÇÕES */
 /* ========================================= */
 
 .section {
@@ -107,6 +106,10 @@ img {
 
   font-size: 0.9rem;
 }
+
+/* ========================================= */
+/* BOTÃO */
+/* ========================================= */
 
 .btn-primary {
   display: inline-flex;
@@ -209,9 +212,9 @@ img {
 
   border-radius: 999px;
 
-  background: rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.08);
 
-  border: 1px solid rgba(255,255,255,0.15);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 
   color: var(--gold);
 }
@@ -254,21 +257,6 @@ img {
   box-shadow: var(--shadow);
 
   transition: var(--transition);
-
-  position: relative;
-}
-
-.imagem::after {
-  content: "";
-
-  position: absolute;
-  inset: 0;
-
-  background:
-    linear-gradient(
-      transparent,
-      rgba(0,0,0,0.25)
-    );
 }
 
 .imagem:hover {
@@ -286,56 +274,24 @@ img {
 
 #conteudo,
 #beneficios,
-.comments-section,
-.references-section {
+.comments-section {
   color: var(--black);
 }
 
-.content-grid {
+.content-grid,
+.cards-grid,
+.gallery-grid {
   display: grid;
 
   grid-template-columns:
-    repeat(auto-fit, minmax(320px, 1fr));
+    repeat(auto-fit, minmax(280px, 1fr));
 
   gap: 2rem;
 }
 
-.content-card {
-  background: rgba(255,255,255,0.95);
-
-  padding: 2rem;
-
-  border-radius: var(--radius-lg);
-
-  box-shadow: var(--shadow);
-
-  border-top: 4px solid var(--gold);
-}
-
-.content-card h3 {
-  margin-bottom: 1rem;
-
-  color: var(--navy);
-}
-
-.highlight-image {
-  margin-top: 3rem;
-}
-
-/* ========================================= */
-/* BENEFÍCIOS */
-/* ========================================= */
-
-.cards-grid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(auto-fit, minmax(250px, 1fr));
-
-  gap: 2rem;
-}
-
-.benefit-card {
+.content-card,
+.benefit-card,
+.comments-card {
   background: var(--white);
 
   padding: 2rem;
@@ -343,20 +299,24 @@ img {
   border-radius: var(--radius-lg);
 
   box-shadow: var(--shadow);
-
-  transition: var(--transition);
-
-  border-bottom: 4px solid var(--green);
 }
 
-.benefit-card:hover {
-  transform: translateY(-8px);
+.content-card {
+  border-top: 4px solid var(--gold);
+}
+
+.benefit-card {
+  border-bottom: 4px solid var(--green);
 }
 
 .card-icon {
   font-size: 2rem;
   display: inline-block;
   margin-bottom: 1rem;
+}
+
+.highlight-image {
+  margin-top: 3rem;
 }
 
 /* ========================================= */
@@ -402,25 +362,14 @@ img {
   overflow: hidden;
 
   transition: max-height 0.4s ease;
+
+  background: white;
 }
 
 .accordion-content p {
   padding: 1.5rem;
 
   color: var(--black);
-}
-
-/* ========================================= */
-/* GALERIA */
-/* ========================================= */
-
-.gallery-grid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(auto-fit, minmax(280px, 1fr));
-
-  gap: 2rem;
 }
 
 /* ========================================= */
@@ -443,20 +392,16 @@ img {
     repeat(auto-fit, minmax(320px, 1fr));
 
   gap: 3rem;
-
-  align-items: center;
 }
 
 .form-card {
-  background: rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.08);
 
   backdrop-filter: blur(10px);
 
   padding: 2rem;
 
   border-radius: var(--radius-lg);
-
-  border: 1px solid rgba(255,255,255,0.1);
 }
 
 .form-group {
@@ -482,16 +427,6 @@ img {
 /* COMENTÁRIOS */
 /* ========================================= */
 
-.comments-card {
-  background: var(--white);
-
-  padding: 2rem;
-
-  border-radius: var(--radius-lg);
-
-  box-shadow: var(--shadow);
-}
-
 .comments-card textarea {
   width: 100%;
   min-height: 180px;
@@ -515,41 +450,6 @@ img {
   border-radius: var(--radius-md);
 
   margin-top: 1rem;
-}
-
-/* ========================================= */
-/* REFERÊNCIAS */
-/* ========================================= */
-
-.references-grid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(auto-fit, minmax(280px, 1fr));
-
-  gap: 2rem;
-}
-
-.reference-card {
-  display: block;
-
-  background: var(--white);
-
-  padding: 2rem;
-
-  border-radius: var(--radius-lg);
-
-  box-shadow: var(--shadow);
-
-  text-decoration: none;
-
-  color: var(--black);
-
-  transition: var(--transition);
-}
-
-.reference-card:hover {
-  transform: translateY(-5px);
 }
 
 /* ========================================= */
@@ -592,11 +492,6 @@ img {
   border-radius: var(--radius-lg);
 
   box-shadow: var(--shadow);
-}
-
-.accessibility-box h3 {
-  font-size: 1rem;
-  text-align: center;
 }
 
 .accessibility-box button {
