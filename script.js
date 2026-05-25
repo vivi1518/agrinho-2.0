@@ -2,18 +2,25 @@
 // ACCORDION
 // =========================================
 
-const accordionHeaders = document.querySelectorAll(".accordion-header");
+const accordionHeaders =
+  document.querySelectorAll(".accordion-header");
 
 accordionHeaders.forEach((header) => {
 
   header.addEventListener("click", () => {
 
-    const content = header.nextElementSibling;
+    const content =
+      header.nextElementSibling;
 
     if (content.style.maxHeight) {
+
       content.style.maxHeight = null;
+
     } else {
-      content.style.maxHeight = content.scrollHeight + "px";
+
+      content.style.maxHeight =
+        content.scrollHeight + "px";
+
     }
 
   });
@@ -24,25 +31,35 @@ accordionHeaders.forEach((header) => {
 // COMENTÁRIOS
 // =========================================
 
-const commentButton = document.getElementById("send-comment");
-const commentInput = document.getElementById("comment-input");
-const commentList = document.getElementById("comment-list");
+const sendCommentButton =
+  document.getElementById("send-comment");
 
-commentButton.addEventListener("click", () => {
+const commentInput =
+  document.getElementById("comment-input");
 
-  const text = commentInput.value.trim();
+const commentsList =
+  document.getElementById("comments-list");
+
+sendCommentButton.addEventListener("click", () => {
+
+  const text =
+    commentInput.value.trim();
 
   if (text === "") {
+
     alert("Digite um comentário.");
     return;
+
   }
 
-  const comment = document.createElement("div");
+  const comment =
+    document.createElement("div");
+
   comment.classList.add("comment-item");
 
   comment.textContent = text;
 
-  commentList.prepend(comment);
+  commentsList.prepend(comment);
 
   commentInput.value = "";
 
@@ -52,15 +69,16 @@ commentButton.addEventListener("click", () => {
 // FORMULÁRIO
 // =========================================
 
-const form = document.getElementById("seminar-form");
+const seminarForm =
+  document.getElementById("seminar-form");
 
-form.addEventListener("submit", (event) => {
+seminarForm.addEventListener("submit", (event) => {
 
   event.preventDefault();
 
   alert("Inscrição realizada com sucesso!");
 
-  form.reset();
+  seminarForm.reset();
 
 });
 
@@ -68,34 +86,40 @@ form.addEventListener("submit", (event) => {
 // ACESSIBILIDADE - FONTE
 // =========================================
 
-const increaseFontBtn = document.getElementById("increase-font");
-const decreaseFontBtn = document.getElementById("decrease-font");
+const increaseFontButton =
+  document.getElementById("increase-font");
+
+const decreaseFontButton =
+  document.getElementById("decrease-font");
 
 let currentFontSize = 100;
 
-increaseFontBtn.addEventListener("click", () => {
+increaseFontButton.addEventListener("click", () => {
 
   currentFontSize += 10;
 
-  document.body.style.fontSize = currentFontSize + "%";
+  document.body.style.fontSize =
+    currentFontSize + "%";
 
 });
 
-decreaseFontBtn.addEventListener("click", () => {
+decreaseFontButton.addEventListener("click", () => {
 
   currentFontSize -= 10;
 
-  document.body.style.fontSize = currentFontSize + "%";
+  document.body.style.fontSize =
+    currentFontSize + "%";
 
 });
 
 // =========================================
-// MODO ESCURO/CLARO
+// MODO ESCURO / CLARO
 // =========================================
 
-const toggleThemeBtn = document.getElementById("toggle-theme");
+const toggleThemeButton =
+  document.getElementById("toggle-theme");
 
-toggleThemeBtn.addEventListener("click", () => {
+toggleThemeButton.addEventListener("click", () => {
 
   document.body.classList.toggle("light-mode");
 
@@ -105,18 +129,26 @@ toggleThemeBtn.addEventListener("click", () => {
 // LEITURA POR VOZ
 // =========================================
 
-const startReadingBtn = document.getElementById("start-reading");
-const stopReadingBtn = document.getElementById("stop-reading");
+const startReadingButton =
+  document.getElementById("start-reading");
+
+const stopReadingButton =
+  document.getElementById("stop-reading");
 
 let speech;
 
-startReadingBtn.addEventListener("click", () => {
+startReadingButton.addEventListener("click", () => {
 
-  const mainContent = document.getElementById("main-content");
+  window.speechSynthesis.cancel();
 
-  const text = mainContent.innerText;
+  const mainContent =
+    document.getElementById("main-content");
 
-  speech = new SpeechSynthesisUtterance(text);
+  const text =
+    mainContent.innerText;
+
+  speech =
+    new SpeechSynthesisUtterance(text);
 
   speech.lang = "pt-BR";
   speech.rate = 1;
@@ -125,7 +157,7 @@ startReadingBtn.addEventListener("click", () => {
 
 });
 
-stopReadingBtn.addEventListener("click", () => {
+stopReadingButton.addEventListener("click", () => {
 
   window.speechSynthesis.cancel();
 
