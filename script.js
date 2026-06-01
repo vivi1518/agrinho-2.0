@@ -1,179 +1,130 @@
-// =========================================
 // ACCORDION
-// =========================================
 
-const accordionHeaders =
-document.querySelectorAll(".accordion-header");
+document.querySelectorAll(".accordion-btn")
+.forEach(botao => {
 
-accordionHeaders.forEach((header) => {
+botao.addEventListener("click", () => {
 
-  header.addEventListener("click", () => {
+const conteudo = botao.nextElementSibling;
 
-    const content =
-    header.nextElementSibling;
-
-    const isOpen =
-    content.style.maxHeight;
-
-    // FECHA TODOS
-
-    document
-    .querySelectorAll(".accordion-content")
-    .forEach((item) => {
-      item.style.maxHeight = null;
-    });
-
-    // ABRE O ATUAL
-
-    if (!isOpen) {
-
-      content.style.maxHeight =
-      content.scrollHeight + "px";
-
-    }
-
-  });
+conteudo.style.display =
+conteudo.style.display === "block"
+? "none"
+: "block";
 
 });
 
-// =========================================
-// COMENTÁRIOS
-// =========================================
+});
 
-const sendCommentButton =
-document.getElementById("send-comment");
+// MODO ESCURO
 
-const commentInput =
-document.getElementById("comment-input");
+const modoTema =
+document.getElementById("modoTema");
 
-const commentsList =
-document.getElementById("comments-list");
+modoTema.addEventListener("click", () => {
+document.body.classList.toggle("dark-mode");
+});
 
-sendCommentButton.addEventListener("click", () => {
+// TAMANHO DA FONTE
 
-  const text =
-  commentInput.value.trim();
+let tamanhoAtual = 16;
 
-  if (text === "") {
+document
+.getElementById("aumentarFonte")
+.addEventListener("click", () => {
 
-    alert("Digite um comentário.");
-    return;
-  }
+tamanhoAtual += 2;
 
-  const comment =
-  document.createElement("div");
-
-  comment.classList.add("comment-item");
-
-  comment.textContent = text;
-
-  commentsList.prepend(comment);
-
-  commentInput.value = "";
+document.documentElement.style.fontSize =
+tamanhoAtual + "px";
 
 });
 
-// =========================================
-// FORMULÁRIO
-// =========================================
+document
+.getElementById("diminuirFonte")
+.addEventListener("click", () => {
 
-const seminarForm =
-document.getElementById("seminar-form");
+tamanhoAtual -= 2;
 
-seminarForm.addEventListener("submit", (event) => {
+if(tamanhoAtual < 12){
+tamanhoAtual = 12;
+}
 
-  event.preventDefault();
-
-  alert("Inscrição realizada com sucesso!");
-
-  seminarForm.reset();
+document.documentElement.style.fontSize =
+tamanhoAtual + "px";
 
 });
 
-// =========================================
-// ACESSIBILIDADE - FONTE
-// =========================================
-
-const increaseFontButton =
-document.getElementById("increase-font");
-
-const decreaseFontButton =
-document.getElementById("decrease-font");
-
-let currentFontSize = 100;
-
-increaseFontButton.addEventListener("click", () => {
-
-  if(currentFontSize < 150){
-
-    currentFontSize += 10;
-
-    document.body.style.fontSize =
-    currentFontSize + "%";
-  }
-
-});
-
-decreaseFontButton.addEventListener("click", () => {
-
-  if(currentFontSize > 80){
-
-    currentFontSize -= 10;
-
-    document.body.style.fontSize =
-    currentFontSize + "%";
-  }
-
-});
-
-// =========================================
-// MODO ESCURO / CLARO
-// =========================================
-
-const toggleThemeButton =
-document.getElementById("toggle-theme");
-
-toggleThemeButton.addEventListener("click", () => {
-
-  document.body.classList.toggle("light-mode");
-
-});
-
-// =========================================
 // LEITURA POR VOZ
-// =========================================
 
-const startReadingButton =
-document.getElementById("start-reading");
+const sintetizador =
+window.speechSynthesis;
 
-const stopReadingButton =
-document.getElementById("stop-reading");
+document
+.getElementById("lerConteudo")
+.addEventListener("click", () => {
 
-let speech;
+sintetizador.cancel();
 
-startReadingButton.addEventListener("click", () => {
+const blocos =
+document.querySelectorAll(".leitura");
 
-  window.speechSynthesis.cancel();
+let texto = "";
 
-  const mainContent =
-  document.getElementById("main-content");
+blocos.forEach(bloco => {
+texto += bloco.innerText + " ";
+});
 
-  const text =
-  mainContent.innerText;
+const fala =
+new SpeechSynthesisUtterance(texto);
 
-  speech =
-  new SpeechSynthesisUtterance(text);
+fala.lang = "pt-BR";
+fala.rate = 1;
+fala.pitch = 1;
 
-  speech.lang = "pt-BR";
-  speech.rate = 1;
-  speech.pitch = 1;
-
-  window.speechSynthesis.speak(speech);
+sintetizador.speak(fala);
 
 });
 
-stopReadingButton.addEventListener("click", () => {
+// PARAR LEITURA
 
-  window.speechSynthesis.cancel();
+document
+.getElementById("pararLeitura")
+.addEventListener("click", () => {
+
+sintetizador.cancel();
+
+});
+
+// FORMULÁRIO
+
+document
+.querySelector(".formulario")
+.addEventListener("submit", (e)=>{
+
+e.preventDefault();
+
+alert(
+"Inscrição enviada com sucesso!"
+);
+
+});
+
+// COMENTÁRIOS
+
+document
+.querySelector(".comentarios button")
+.addEventListener("click", ()=>{
+
+const texto =
+document.querySelector("textarea");
+
+if(texto.value.trim() !== ""){
+
+alert("Comentário enviado!");
+
+texto.value = "";
+
+}
 
 });
