@@ -1,130 +1,81 @@
 // ACCORDION
 
-document.querySelectorAll(".accordion-btn")
-.forEach(botao => {
+document.querySelectorAll(".accordion-btn").forEach(btn => {
 
-botao.addEventListener("click", () => {
+    btn.addEventListener("click", () => {
 
-const conteudo = botao.nextElementSibling;
+        const content = btn.nextElementSibling;
 
-conteudo.style.display =
-conteudo.style.display === "block"
-? "none"
-: "block";
+        content.style.display =
+        content.style.display === "block"
+        ? "none"
+        : "block";
 
-});
+    });
 
 });
 
 // MODO ESCURO
 
-const modoTema =
-document.getElementById("modoTema");
+const themeBtn = document.getElementById("toggleTheme");
 
-modoTema.addEventListener("click", () => {
-document.body.classList.toggle("dark-mode");
+themeBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
 });
 
 // TAMANHO DA FONTE
 
-let tamanhoAtual = 16;
+let currentSize = 16;
 
-document
-.getElementById("aumentarFonte")
+document.getElementById("increaseFont")
 .addEventListener("click", () => {
 
-tamanhoAtual += 2;
-
-document.documentElement.style.fontSize =
-tamanhoAtual + "px";
+    currentSize += 2;
+    document.documentElement.style.setProperty(
+        "--font-size",
+        currentSize + "px"
+    );
 
 });
 
-document
-.getElementById("diminuirFonte")
+document.getElementById("decreaseFont")
 .addEventListener("click", () => {
 
-tamanhoAtual -= 2;
+    currentSize -= 2;
 
-if(tamanhoAtual < 12){
-tamanhoAtual = 12;
-}
+    if(currentSize < 12){
+        currentSize = 12;
+    }
 
-document.documentElement.style.fontSize =
-tamanhoAtual + "px";
+    document.documentElement.style.setProperty(
+        "--font-size",
+        currentSize + "px"
+    );
 
 });
 
 // LEITURA POR VOZ
 
-const sintetizador =
-window.speechSynthesis;
+let speech = null;
 
-document
-.getElementById("lerConteudo")
+document.getElementById("readContent")
 .addEventListener("click", () => {
 
-sintetizador.cancel();
+    const text =
+    document.getElementById("main-content").innerText;
 
-const blocos =
-document.querySelectorAll(".leitura");
+    speech = new SpeechSynthesisUtterance(text);
 
-let texto = "";
+    speech.lang = "pt-BR";
+    speech.rate = 1;
 
-blocos.forEach(bloco => {
-texto += bloco.innerText + " ";
-});
-
-const fala =
-new SpeechSynthesisUtterance(texto);
-
-fala.lang = "pt-BR";
-fala.rate = 1;
-fala.pitch = 1;
-
-sintetizador.speak(fala);
+    window.speechSynthesis.speak(speech);
 
 });
 
-// PARAR LEITURA
-
-document
-.getElementById("pararLeitura")
+document.getElementById("stopReading")
 .addEventListener("click", () => {
 
-sintetizador.cancel();
-
-});
-
-// FORMULÁRIO
-
-document
-.querySelector(".formulario")
-.addEventListener("submit", (e)=>{
-
-e.preventDefault();
-
-alert(
-"Inscrição enviada com sucesso!"
-);
-
-});
-
-// COMENTÁRIOS
-
-document
-.querySelector(".comentarios button")
-.addEventListener("click", ()=>{
-
-const texto =
-document.querySelector("textarea");
-
-if(texto.value.trim() !== ""){
-
-alert("Comentário enviado!");
-
-texto.value = "";
-
-}
+    window.speechSynthesis.cancel();
 
 });
