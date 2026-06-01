@@ -1,246 +1,59 @@
-:root{
-
---azul:#003C8F;
---azul-metal:#0A4DA3;
---azul-celeste:#5CB8FF;
---verde:#1FA84A;
---verde-folha:#3FB950;
---ouro:#D8B13B;
---preto:#111;
---branco:#fff;
-
---radius:20px;
---shadow:0 10px 25px rgba(0,0,0,.15);
-
---fonte-base:16px;
-
+/* Fonte, reset e cores */
+:root {
+  --azul: #1E3A8A;
+  --azul-metalico: #3B82F6;
+  --azul-celeste: #60A5FA;
+  --verde: #16A34A;
+  --verde-folha: #22C55E;
+  --ouro: #FBBF24;
+  --branco: #FFFFFF;
+  --preto: #111827;
+  --font-base: 'Poppins', sans-serif;
+  --padding-base: 1rem;
+  --radius-base: 12px;
 }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+* {
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-base);
 }
 
-html{
-scroll-behavior:smooth;
-font-size:var(--fonte-base);
+body {
+  background: var(--branco);
+  color: var(--preto);
+  line-height: 1.6;
 }
 
-body{
-font-family:'Poppins',sans-serif;
-background:#f4f8fb;
-color:#222;
-line-height:1.7;
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--padding-base);
+  background: var(--azul-metalico);
+  color: var(--branco);
 }
 
-.hero{
-min-height:100vh;
-background:
-linear-gradient(135deg,#003C8F,#0A4DA3,#1FA84A);
-color:white;
-display:flex;
-flex-direction:column;
+.navbar .logo {
+  font-weight: 700;
+  font-size: clamp(1.2rem, 2vw, 1.8rem);
 }
 
-.navbar{
-display:flex;
-justify-content:space-between;
-padding:1.5rem 5%;
+.navbar .btn-nav {
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  background: var(--ouro);
+  border-radius: var(--radius-base);
+  color: var(--preto);
+  font-weight: 600;
 }
 
-.logo{
-font-size:1.5rem;
-font-weight:700;
-}
-
-.hero-content{
-flex:1;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:2rem;
-}
-
-.hero h1{
-font-size:clamp(2.5rem,6vw,5rem);
-margin-bottom:1rem;
-}
-
-.hero p{
-max-width:900px;
-font-size:clamp(1rem,2vw,1.3rem);
-}
-
-.btn-principal,
-.btn-nav{
-background:var(--ouro);
-color:black;
-padding:1rem 2rem;
-border-radius:999px;
-text-decoration:none;
-font-weight:600;
-margin-top:2rem;
-}
-
-.secao{
-padding:5rem 8%;
-}
-
-h2{
-margin-bottom:2rem;
-font-size:clamp(2rem,4vw,3rem);
-}
-
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:2rem;
-}
-
-.card{
-background:white;
-padding:2rem;
-border-radius:var(--radius);
-box-shadow:var(--shadow);
-transition:.3s;
-}
-
-.card:hover{
-transform:translateY(-8px);
-}
-
-.grid-imagens{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:1.5rem;
-padding:2rem 8%;
-}
-
-.imagem img{
-width:100%;
-height:300px;
-object-fit:cover;
-border-radius:20px;
-box-shadow:var(--shadow);
-transition:.4s;
-}
-
-.imagem img:hover{
-transform:scale(1.03);
-}
-
-.accordion-btn{
-width:100%;
-padding:1rem;
-border:none;
-background:var(--azul);
-color:white;
-text-align:left;
-margin-top:1rem;
-border-radius:12px;
-cursor:pointer;
-}
-
-.accordion-content{
-display:none;
-padding:1rem;
-background:white;
-border-radius:12px;
-}
-
-.formulario-container{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:2rem;
-padding:5rem 8%;
-}
-
-.formulario{
-display:flex;
-flex-direction:column;
-gap:1rem;
-}
-
-.formulario input,
-textarea{
-padding:1rem;
-border-radius:12px;
-border:1px solid #ddd;
-}
-
-.formulario button,
-.comentarios button{
-background:var(--verde);
-color:white;
-border:none;
-padding:1rem;
-border-radius:12px;
-cursor:pointer;
-}
-
-.comentarios{
-padding:5rem 8%;
-}
-
-textarea{
-width:100%;
-min-height:150px;
-margin-bottom:1rem;
-}
-
-.acessibilidade{
-position:fixed;
-right:15px;
-top:50%;
-transform:translateY(-50%);
-background:white;
-padding:1rem;
-border-radius:20px;
-box-shadow:var(--shadow);
-display:flex;
-flex-direction:column;
-gap:.5rem;
-z-index:999;
-}
-
-.acessibilidade button{
-padding:.7rem;
-cursor:pointer;
-}
-
-.dark-mode{
-background:#111;
-color:white;
-}
-
-.dark-mode .card,
-.dark-mode .accordion-content,
-.dark-mode .acessibilidade{
-background:#222;
-color:white;
-}
-
-footer{
-background:#000;
-color:white;
-padding:3rem;
-text-align:center;
-}
-
-@media(max-width:768px){
-
-.formulario-container{
-grid-template-columns:1fr;
-}
-
-.acessibilidade{
-bottom:10px;
-top:auto;
-transform:none;
-right:10px;
-}
-
-}
+/* HERO */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+ 
