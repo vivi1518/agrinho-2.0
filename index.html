@@ -1,292 +1,343 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agro Forte, Futuro Sustentável</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agro Forte, Futuro Sustentável</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+:root{
+    --bg:#f4f9f4;
+    --text:#333;
+    --card:#fff;
+    --nav:#2e8b57;
+}
+
+body.dark{
+    --bg:#121212;
+    --text:#e4e4e4;
+    --card:#1e1e1e;
+    --nav:#1a1a1a;
+}
+
+body{
+    font-family:'Segoe UI',sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    transition:.3s;
+}
+
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    background:var(--nav);
+    padding:15px;
+    text-align:center;
+    z-index:1000;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 10px;
+    font-weight:bold;
+}
+
+.hero{
+    height:100vh;
+    background:url('https://images.unsplash.com/photo-1500382017468-9049fed747ef') center/cover;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+}
+
+.hero div{
+    background:rgba(0,0,0,.55);
+    padding:30px;
+    border-radius:15px;
+}
+
+.hero h1{
+    font-size:3rem;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:15px;
+    padding:12px 25px;
+    background:#3cb371;
+    color:white;
+    text-decoration:none;
+    border-radius:25px;
+}
+
+section{
+    max-width:1100px;
+    margin:auto;
+    padding:80px 20px;
+}
+
+h2{
+    margin-bottom:20px;
+    color:#2e8b57;
+}
+
+.cards{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.card{
+    flex:1;
+    min-width:250px;
+    background:var(--card);
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.card a{
+    display:inline-block;
+    margin-top:10px;
+    padding:8px 15px;
+    background:#2e8b57;
+    color:white;
+    text-decoration:none;
+    border-radius:10px;
+}
+
+.galeria{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.galeria img{
+    width:32%;
+    border-radius:10px;
+}
+
+iframe{
+    width:100%;
+    border:none;
+    border-radius:10px;
+}
+
+footer{
+    background:var(--nav);
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+/* Acessibilidade */
+
+#acessibilidade{
+    position:fixed;
+    right:15px;
+    top:50%;
+    transform:translateY(-50%);
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    z-index:9999;
+}
+
+#acessibilidade button{
+    width:50px;
+    height:50px;
+    border:none;
+    border-radius:50%;
+    cursor:pointer;
+    font-size:18px;
+    box-shadow:0 3px 10px rgba(0,0,0,.25);
+}
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:2rem;
+}
+
+.galeria img{
+    width:100%;
+}
+
+nav{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+}
+</style>
 </head>
+
 <body>
 
-    <!-- ACESSIBILIDADE -->
-    <aside class="accessibility-box">
-        <h3>Acessibilidade</h3>
-        <button id="increaseFont">A+</button>
-        <button id="decreaseFont">A-</button>
-        <button id="toggleTheme">🌙/☀️</button>
-        <button id="readContent">🔊 Ler</button>
-        <button id="stopReading">⏹ Parar</button>
-    </aside>
+<div id="acessibilidade">
+    <button onclick="alterarFonte(1)">A+</button>
+    <button onclick="alterarFonte(-1)">A-</button>
+    <button onclick="alternarTema()">🌙</button>
+    <button onclick="lerPagina()">🔊</button>
+    <button onclick="pararLeitura()">⏹</button>
+</div>
 
-    <!-- HERO -->
-    <header class="hero">
-        <div class="hero-content">
-            <h1>Agro Forte, Futuro Sustentável</h1>
+<nav>
+    <a href="#inicio">Início</a>
+    <a href="#agro">Agro</a>
+    <a href="#sustentavel">Sustentável</a>
+    <a href="#galeria">Galeria</a>
+    <a href="#video">Vídeo</a>
+    <a href="#referencias">Fontes</a>
+</nav>
 
-            <p>
-                Tecnologia, Inteligência Artificial, sustentabilidade e inovação
-                impulsionando uma agricultura mais eficiente, resiliente e conectada.
-            </p>
+<section class="hero" id="inicio">
+    <div>
+        <h1>🌱 Agro Forte, Futuro Sustentável</h1>
+        <p>Produção com consciência e respeito à natureza.</p>
+        <a href="#agro" class="btn">Explorar</a>
+    </div>
+</section>
 
-            <a href="#conteudo" class="btn-primary">
-                Descubra o Futuro do Campo
-            </a>
+<section id="agro">
+    <h2>🚜 Agro Forte</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Produção</h3>
+            <p>O agronegócio produz alimentos, gera renda e movimenta a economia brasileira.</p>
         </div>
-    </header>
 
-    <main id="main-content">
+        <div class="card">
+            <h3>Tecnologia</h3>
+            <p>Drones, sensores e inteligência artificial tornam a produção mais eficiente.</p>
+        </div>
 
-        <!-- GRID PRINCIPAL -->
-        <section class="layout-grid">
+        <div class="card">
+            <h3>Desenvolvimento</h3>
+            <p>O campo gera empregos e fortalece comunidades rurais.</p>
+        </div>
 
-            <!-- CONTEÚDO -->
-            <div class="content-area">
+    </div>
+</section>
 
-                <section id="conteudo" class="section">
-                    <h2>Tecnologia agrícola reforça papel do Brasil</h2>
+<section id="sustentavel">
+    <h2>♻️ Futuro Sustentável</h2>
 
-                    <div class="card">
-                        <p>
-                            A agricultura sustentável ganha espaço no debate global em um momento
-                            de pressão sobre custos, segurança alimentar, energia e mudanças climáticas.
-                            Segundo <strong>Luciana Gorab</strong>, especialista em Planejamento Estratégico
-                            de Vendas, esse cenário coloca o Brasil em posição de destaque por unir
-                            <strong>produtividade</strong>, <strong>inovação</strong> e
-                            <strong>capacidade de adaptação</strong>.
-                        </p>
-                    </div>
+    <p>
+        Sustentabilidade significa produzir mais utilizando menos recursos,
+        protegendo o meio ambiente e garantindo qualidade de vida para as
+        futuras gerações.
+    </p>
+</section>
 
-                    <div class="card">
-                        <p>
-                            O trabalho da microbiologista
-                            <strong>Mariangela Hungria</strong>
-                            ganhou reconhecimento internacional ao desenvolver bactérias capazes de reduzir
-                            a dependência de fertilizantes químicos, capturando nitrogênio diretamente do ar.
-                        </p>
-                    </div>
+<section id="galeria">
+    <h2>📸 Galeria</h2>
 
-                    <div class="card destaque">
-                        <h3>O verdadeiro ouro do futuro</h3>
+    <div class="galeria">
+        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef" alt="Plantação">
+        <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399" alt="Campo">
+        <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6" alt="Agricultura">
+    </div>
+</section>
 
-                        <p>
-                            "Num planeta preocupado com segurança alimentar, inflação e mudanças climáticas,
-                            talvez uma das soluções mais sofisticadas do século esteja justamente onde o Brasil
-                            sempre foi forte: no campo."
-                        </p>
-                    </div>
-                </section>
+<section id="video">
+    <h2>🎥 Sustentabilidade na prática</h2>
 
-                <!-- IMAGENS -->
-                <section class="section">
-                    <h2>Galeria do Agro Inteligente</h2>
+    <iframe
+        height="500"
+        src="https://www.youtube.com/embed/PJ50lwwy_hs"
+        allowfullscreen>
+    </iframe>
+</section>
 
-                    <div class="image-grid">
+<section id="referencias">
+    <h2>📚 Fontes Confiáveis</h2>
 
-                        <div class="imagem">
-                            <img src="Foto1.png" alt="Drone monitorando lavoura">
-                        </div>
+    <div class="cards">
 
-                        <div class="imagem">
-                            <img src="Foto2.png" alt="Sensores agrícolas inteligentes">
-                        </div>
+        <div class="card">
+            <h3>EMBRAPA</h3>
+            <a href="https://www.embrapa.br" target="_blank">Acessar</a>
+        </div>
 
-                        <div class="imagem">
-                            <img src="Foto3.png" alt="Agricultura sustentável">
-                        </div>
+        <div class="card">
+            <h3>Ministério da Agricultura</h3>
+            <a href="https://www.gov.br/agricultura" target="_blank">Acessar</a>
+        </div>
 
-                        <div class="imagem">
-                            <img src="Foto4.png" alt="Máquinas autônomas">
-                        </div>
+        <div class="card">
+            <h3>IBAMA</h3>
+            <a href="https://www.gov.br/ibama" target="_blank">Acessar</a>
+        </div>
 
-                        <div class="imagem">
-                            <img src="Foto5.png" alt="Inteligência Artificial no campo">
-                        </div>
+    </div>
+</section>
 
-                    </div>
-                </section>
+<footer>
+    <p>🌱 Agro Forte, Futuro Sustentável | 2026</p>
+</footer>
 
-                <!-- BENEFÍCIOS IA -->
-                <section class="section">
-                    <h2>Benefícios da Inteligência Artificial no Campo</h2>
+<script>
+let tamanhoFonte = 16;
 
-                    <div class="cards-grid">
+function alterarFonte(valor){
+    tamanhoFonte += valor;
+    document.body.style.fontSize = tamanhoFonte + "px";
+}
 
-                        <article class="info-card">
-                            <h3>💧 Otimização de Recursos</h3>
-                            <p>
-                                Irrigação inteligente, análise do solo e redução do desperdício.
-                            </p>
-                        </article>
+function alternarTema(){
+    document.body.classList.toggle("dark");
 
-                        <article class="info-card">
-                            <h3>🚁 Monitoramento de Culturas</h3>
-                            <p>
-                                Uso de drones, sensores e análise de imagens para decisões rápidas.
-                            </p>
-                        </article>
+    localStorage.setItem(
+        "tema",
+        document.body.classList.contains("dark")
+        ? "dark"
+        : "light"
+    );
+}
 
-                        <article class="info-card">
-                            <h3>📊 Gestão de Riscos</h3>
-                            <p>
-                                Previsões climáticas e estimativas de produtividade.
-                            </p>
-                        </article>
+if(localStorage.getItem("tema")==="dark"){
+    document.body.classList.add("dark");
+}
 
-                        <article class="info-card">
-                            <h3>🤖 Automação</h3>
-                            <p>
-                                Tratores autônomos, GPS e operações agrícolas inteligentes.
-                            </p>
-                        </article>
+function lerPagina(){
 
-                        <article class="info-card">
-                            <h3>🌾 Qualidade dos Produtos</h3>
-                            <p>
-                                Rastreabilidade e controle de qualidade do campo ao consumidor.
-                            </p>
-                        </article>
+    speechSynthesis.cancel();
 
-                        <article class="info-card">
-                            <h3>♻️ Sustentabilidade</h3>
-                            <p>
-                                Uso eficiente de água, fertilizantes e defensivos agrícolas.
-                            </p>
-                        </article>
+    const texto =
+        document.querySelector("main")
+        ? document.querySelector("main").innerText
+        : document.body.innerText;
 
-                    </div>
-                </section>
+    const fala = new SpeechSynthesisUtterance(texto);
 
-                <!-- ACCORDION -->
-                <section class="section">
-                    <h2>Saiba Mais</h2>
+    fala.lang="pt-BR";
+    fala.rate=1;
+    fala.pitch=1;
 
-                    <div class="accordion">
+    speechSynthesis.speak(fala);
+}
 
-                        <button class="accordion-btn">
-                            Brasil como protagonista da inovação agrícola
-                        </button>
-
-                        <div class="accordion-content">
-                            <p>
-                                O reconhecimento internacional demonstra a capacidade brasileira
-                                de liderar soluções sustentáveis para segurança alimentar global.
-                            </p>
-                        </div>
-
-                        <button class="accordion-btn">
-                            IA e sustentabilidade
-                        </button>
-
-                        <div class="accordion-content">
-                            <p>
-                                A Inteligência Artificial permite decisões mais precisas,
-                                reduzindo desperdícios e impactos ambientais.
-                            </p>
-                        </div>
-
-                        <button class="accordion-btn">
-                            O futuro da agricultura
-                        </button>
-
-                        <div class="accordion-content">
-                            <p>
-                                A combinação entre biotecnologia, IA, sensores, automação e análise
-                                de dados está transformando a agricultura mundial.
-                            </p>
-                        </div>
-
-                    </div>
-                </section>
-
-                <!-- LINKS -->
-                <section class="section">
-                    <h2>Especialistas e Referências</h2>
-
-                    <div class="cards-grid">
-
-                        <a href="https://www.bemagro.com/beneficios-inteligencia-artificial-no-campo/"
-                           target="_blank"
-                           class="link-card">
-                            Bem Agro
-                        </a>
-
-                        <a href="https://www.agrolink.com.br/noticias/o-campo-conectado--como-a-ia-vem-transformando-o-agro_514351.html"
-                           target="_blank"
-                           class="link-card">
-                            Agrolink
-                        </a>
-
-                    </div>
-                </section>
-
-                <!-- COMENTÁRIOS -->
-                <section class="section">
-                    <h2>Interação com o Leitor</h2>
-
-                    <div class="comment-box">
-                        <textarea placeholder="Digite seu comentário..."></textarea>
-                        <button>Enviar Comentário</button>
-                    </div>
-                </section>
-
-            </div>
-
-            <!-- FORMULÁRIO -->
-            <aside class="form-sidebar">
-
-                <div class="form-card">
-
-                    <h2>
-                        Venha conhecer melhor como a IA pode ser uma aliada do Campo.
-                    </h2>
-
-                    <p>
-                        Inscreva-se no nosso seminário on-line.
-                    </p>
-
-                    <form>
-
-                        <input type="text" placeholder="Nome" required>
-
-                        <input type="email" placeholder="E-mail" required>
-
-                        <input type="text" placeholder="Cidade">
-
-                        <input type="text" placeholder="Estado">
-
-                        <input type="text" placeholder="País">
-
-                        <button type="submit">
-                            Inscrever-se
-                        </button>
-
-                    </form>
-
-                </div>
-
-            </aside>
-
-        </section>
-
-    </main>
-
-    <footer>
-        <h3>Referências Utilizadas</h3>
-
-        <p>
-            https://www.bemagro.com/beneficios-inteligencia-artificial-no-campo/
-        </p>
-
-        <p>
-            https://www.agrolink.com.br/noticias/o-campo-conectado--como-a-ia-vem-transformando-o-agro_514351.html
-        </p>
-
-        <p class="frase">
-            AgroFuturo 2026 ° Conectando a inteligência tecnologia à terra de forma sustentável
-        </p>
-    </footer>
-
-    <script src="script.js"></script>
+function pararLeitura(){
+    speechSynthesis.cancel();
+}
+</script>
 
 </body>
 </html>
