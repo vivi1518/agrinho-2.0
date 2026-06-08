@@ -1,81 +1,221 @@
-// ACCORDION
+```javascript
+/* ==========================
+   SAUDAÇÃO PERSONALIZADA
+========================== */
 
-document.querySelectorAll(".accordion-btn").forEach(btn => {
+function saudacao() {
 
-    btn.addEventListener("click", () => {
+    const nome = document.getElementById("nome");
+    const resposta = document.getElementById("resposta");
 
-        const content = btn.nextElementSibling;
+    if (!nome || !resposta) return;
 
-        content.style.display =
-        content.style.display === "block"
-        ? "none"
-        : "block";
+    if (nome.value.trim() === "") {
 
-    });
+        resposta.innerText =
+        "Por favor, digite seu nome.";
 
-});
+    } else {
 
-// MODO ESCURO
+        resposta.innerText =
+        `Olá, ${nome.value}! Seja bem-vindo(a) 🌱`;
 
-const themeBtn = document.getElementById("toggleTheme");
-
-themeBtn.addEventListener("click", () => {
-    document.body.classList.toggle("dark");
-});
-
-// TAMANHO DA FONTE
-
-let currentSize = 16;
-
-document.getElementById("increaseFont")
-.addEventListener("click", () => {
-
-    currentSize += 2;
-    document.documentElement.style.setProperty(
-        "--font-size",
-        currentSize + "px"
-    );
-
-});
-
-document.getElementById("decreaseFont")
-.addEventListener("click", () => {
-
-    currentSize -= 2;
-
-    if(currentSize < 12){
-        currentSize = 12;
     }
+}
 
-    document.documentElement.style.setProperty(
-        "--font-size",
-        currentSize + "px"
+/* ==========================
+   GALERIA
+========================== */
+
+function toggleGaleria() {
+
+    const galeria =
+    document.getElementById("galeriaImagens");
+
+    if (!galeria) return;
+
+    if (
+        galeria.style.display === "none" ||
+        galeria.style.display === ""
+    ) {
+
+        galeria.style.display = "flex";
+
+    } else {
+
+        galeria.style.display = "none";
+
+    }
+}
+
+/* ==========================
+   ACESSIBILIDADE
+========================== */
+
+let tamanhoFonte = 16;
+
+function alterarFonte(valor) {
+
+    tamanhoFonte += valor;
+
+    if (tamanhoFonte < 12) tamanhoFonte = 12;
+    if (tamanhoFonte > 32) tamanhoFonte = 32;
+
+    document.documentElement.style.fontSize =
+    tamanhoFonte + "px";
+}
+
+/* ==========================
+   MODO ESCURO
+========================== */
+
+function alternarTema() {
+
+    document.body.classList.toggle("dark");
+
+    localStorage.setItem(
+        "tema",
+        document.body.classList.contains("dark")
+        ? "dark"
+        : "light"
     );
+}
 
+/* Carrega tema salvo */
+
+window.addEventListener("DOMContentLoaded", () => {
+
+    if (
+        localStorage.getItem("tema") === "dark"
+    ) {
+
+        document.body.classList.add("dark");
+
+    }
 });
 
-// LEITURA POR VOZ
+/* ==========================
+   LEITURA POR VOZ
+========================== */
 
-let speech = null;
+function lerPagina() {
 
-document.getElementById("readContent")
-.addEventListener("click", () => {
+    pararLeitura();
 
-    const text =
-    document.getElementById("main-content").innerText;
+    const conteudo =
+    document.querySelector("main") ||
+    document.querySelector("section");
 
-    speech = new SpeechSynthesisUtterance(text);
+    const texto = conteudo
+        ? conteudo.innerText
+        : document.body.innerText;
 
-    speech.lang = "pt-BR";
-    speech.rate = 1;
+    const fala =
+    new SpeechSynthesisUtterance(texto);
 
-    window.speechSynthesis.speak(speech);
+    fala.lang = "pt-BR";
+    fala.rate = 1;
+    fala.pitch = 1;
 
+    speechSynthesis.speak(fala);
+}
+
+function pararLeitura() {
+
+    speechSynthesis.cancel();
+}
+
+/* ==========================
+   AJUSTE DE TELA
+========================== */
+
+function ajustarTela() {
+
+    const container =
+    document.getElementById("container");
+
+    if (container) {
+
+        container.style.minHeight =
+        window.innerHeight + "px";
+
+    }
+}
+
+window.addEventListener(
+    "resize",
+    ajustarTela
+);
+
+window.addEventListener(
+    "DOMContentLoaded",
+    ajustarTela
+);
+
+/* ==========================
+   LOADER
+========================== */
+
+window.addEventListener("load", () => {
+
+    const loader =
+    document.getElementById("loader");
+
+    if (!loader) return;
+
+    setTimeout(() => {
+
+        loader.style.display = "none";
+
+    }, 1500);
 });
 
-document.getElementById("stopReading")
-.addEventListener("click", () => {
+/* ==========================
+   BOTÃO VOLTAR AO TOPO
+========================== */
 
-    window.speechSynthesis.cancel();
+window.addEventListener(
+    "DOMContentLoaded",
+    () => {
 
-});
+        const topBtn =
+        document.getElementById("topBtn");
+
+        if (!topBtn) return;
+
+        topBtn.style.display = "none";
+
+        window.addEventListener(
+            "scroll",
+            () => {
+
+                if (
+                    window.scrollY > 300
+                ) {
+
+                    topBtn.style.display =
+                    "block";
+
+                } else {
+
+                    topBtn.style.display =
+                    "none";
+
+                }
+            }
+        );
+
+        topBtn.addEventListener(
+            "click",
+            () => {
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+
+            }
+        );
+    }
+);
+```
