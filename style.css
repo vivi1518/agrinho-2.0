@@ -83,115 +83,65 @@ nav a{
     min-height: 100vh;
 
     background:
-        url("https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=1600")
-        center/cover no-repeat;
+        linear-gradient(
+            rgba(46, 125, 50, 0.55),
+            rgba(46, 125, 50, 0.55)
+        ),
+        url("imagens/agro-fundo.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 
     text-align: center;
+
     color: white;
-
-    overflow: hidden;
-}
-
-.hero-overlay {
-    position: absolute;
-    inset: 0;
-
-    background:
-        linear-gradient(
-            rgba(0, 0, 0, 0.55),
-            rgba(46, 125, 50, 0.45)
-        );
 }
 
 .hero-conteudo {
-    position: relative;
-    z-index: 2;
-
-    max-width: 800px;
+    max-width: 750px;
     padding: 20px;
-}
-
-.hero-tag {
-    display: inline-block;
-
-    background: rgba(255, 255, 255, 0.15);
-
-    backdrop-filter: blur(10px);
-
-    padding: 10px 20px;
-
-    border-radius: 30px;
-
-    margin-bottom: 25px;
+    z-index: 2;
 }
 
 .hero h1 {
     font-size: clamp(2.8rem, 6vw, 5rem);
-
-    margin-bottom: 20px;
-
-    line-height: 1.1;
+    margin-bottom: 25px;
+    line-height: 1.2;
 }
 
 .hero p {
     font-size: 1.2rem;
-
     line-height: 1.8;
-
     margin-bottom: 40px;
 }
 
-.hero-botoes {
-    display: flex;
+.btn-saiba-mais {
+    display: inline-block;
 
-    justify-content: center;
+    padding: 15px 35px;
 
-    flex-wrap: wrap;
+    background: white;
 
-    gap: 20px;
-}
-
-.btn-principal,
-.btn-secundario {
-    padding: 15px 30px;
-
-    border-radius: 50px;
+    color: #2E7D32;
 
     text-decoration: none;
 
     font-weight: 600;
 
-    transition: .3s;
+    border-radius: 50px;
+
+    transition: 0.3s ease;
 }
 
-.btn-principal {
-    background: #4CAF50;
-
-    color: white;
-}
-
-.btn-principal:hover {
+.btn-saiba-mais:hover {
     transform: translateY(-5px);
-}
 
-.btn-secundario {
-    background: rgba(255,255,255,.15);
-
-    color: white;
-
-    border: 2px solid white;
-
-    backdrop-filter: blur(8px);
-}
-
-.btn-secundario:hover {
-    background: white;
-
-    color: #2E7D32;
+    background: #f0f0f0;
 }
 /* ==========================
    BOTÕES
