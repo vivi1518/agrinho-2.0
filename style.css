@@ -224,84 +224,76 @@ section{
 ========================== */
 .cards-grid {
     display: grid;
-
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
-
-    margin-top: 40px;
+    margin: 40px 0;
 }
 
 .card {
-    background: rgba(255, 255, 255, 0.95);
-
+    background: #fff;
     border-radius: 25px;
-
-    padding: 35px 30px;
-
-    box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.08);
-
-    transition: all 0.4s ease;
-
-    display: flex;
-
-    flex-direction: column;
-
+    padding: 30px;
     text-align: center;
-
-    height: 100%;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transition: 0.4s ease;
 }
 
 .card:hover {
-    transform: translateY(-12px);
-
-    box-shadow:
-        0 18px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
 }
 
 .card-icon {
     width: 80px;
-
     height: 80px;
-
     margin: 0 auto 20px;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
+    background: linear-gradient(135deg, #4CAF50, #2E7D32);
     border-radius: 50%;
 
-    background: linear-gradient(
-        135deg,
-        #4CAF50,
-        #2E7D32
-    );
-
     font-size: 2rem;
-
-    color: white;
 }
 
 .card h3 {
     color: #2E7D32;
-
     margin-bottom: 15px;
-
-    font-size: 1.4rem;
 }
 
 .card p {
+    line-height: 1.7;
     color: #555;
+}
 
-    line-height: 1.8;
+.btn-sustentabilidade {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 14px 28px;
+    background: #2E7D32;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: 0.3s;
+}
 
-    text-align: justify;
+.btn-sustentabilidade:hover {
+    background: #4CAF50;
+}
 
-    flex-grow: 1;
+/* Responsividade */
+@media (max-width: 992px) {
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .lista-sustentavel {
