@@ -1,8 +1,7 @@
 # Agro Forte Futuro Sustentável
 
 ## Tema da página
-Página moderna, tecnológica e sustentável sobre o futuro do agronegócio com Inteligência Artificial no campo.
-
+Agro forte, futuro sustentavel
 ---
 
 ## Objetivo da página
