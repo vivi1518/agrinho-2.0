@@ -187,51 +187,78 @@ blockquote {
     margin-top: 40px;
 }
 
+.descricao-fontes {
+    max-width: 900px;
+    margin: 0 auto 40px;
+    text-align: center;
+    line-height: 1.8;
+    color: #555;
+}
+
+.cards-fontes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
 .card-fonte {
-    background: white;
-    padding: 30px 25px;
+    background: #fff;
     border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    transition: all 0.4s ease;
-    text-align: left;
-    height: 100%;
+    padding: 30px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
 }
 
 .card-fonte:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    transform: translateY(-8px);
+}
+
+.icone {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
 }
 
 .card-fonte h3 {
     color: #2e7d32;
     margin-bottom: 15px;
-    font-size: 1.3rem;
 }
 
 .card-fonte p {
-    color: #555;
     line-height: 1.7;
+    color: #555;
     text-align: justify;
+    flex-grow: 1;
 }
 
-.subtitulo {
-    text-align: center;
-    max-width: 800px;
-    margin: 15px auto 35px;
-    color: #666;
-    line-height: 1.8;
+.categoria {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 15px;
+    background: #e8f5e9;
+    color: #2e7d32;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
 }
-.destaque-fonte {
-    margin-top: 40px;
-    padding: 25px;
+
+.observacao {
+    margin-top: 50px;
+    padding: 30px;
     background: linear-gradient(135deg, #2e7d32, #4caf50);
     color: white;
     border-radius: 20px;
     text-align: center;
-    font-size: 1.1rem;
-    line-height: 1.8;
 }
 
+.observacao h3 {
+    margin-bottom: 15px;
+}
+
+.observacao p {
+    line-height: 1.8;
+}
 /* ==========================
    GALERIA
 ========================== */
