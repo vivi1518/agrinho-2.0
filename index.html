@@ -120,6 +120,38 @@ h2{
     border-radius:10px;
 }
 
+    /* ==================== CARDS LADO A LADO ==================== */
+
+/* Se os cards estiverem dentro de um container */
+.seu-container-de-cards {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 20px !important;
+}
+
+/* Estilo para cada card */
+.seu-card {
+  width: calc(33.33% - 20px) !important; /* 3 cards por linha */
+  min-width: 280px !important;
+  max-width: 400px !important;
+  margin: 10px !important;
+}
+
+/* Responsivo -Tablet (2 cards) */
+@media (max-width: 900px) {
+  .seu-card {
+    width: calc(50% - 20px) !important;
+  }
+}
+
+/* Responsivo - Celular (1 card) */
+@media (max-width: 600px) {
+  .seu-card {
+    width: 100% !important;
+  }
+}
+    
 .galeria{
     display:flex;
     flex-wrap:wrap;
