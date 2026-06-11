@@ -481,12 +481,13 @@ nav{
     transform: scale(1.1);
   }
 
-  /* Estilos para Modo Noturno */
+  /* ==================== MODO NOTURNO ==================== */
   body.modo-noturno {
-    background-color: #000 !important;
+    background-color: #0d0d0d !important;
     color: #fff !important;
   }
   
+  /* Tags gerais */
   body.modo-noturno p, 
   body.modo-noturno h1, 
   body.modo-noturno h2, 
@@ -499,17 +500,112 @@ nav{
   body.modo-noturno li,
   body.modo-noturno td,
   body.modo-noturno th,
-  body.modo-noturno div,
-  body.modo-noturno section,
-  body.modo-noturno article {
+  body.modo-noturno label {
     color: #fff !important;
+  }
+
+  /* Cards - Container principal */
+  body.modo-noturno .card,
+  body.modo-noturno .cards,
+  body.modo-noturno .card-container,
+  body.modo-noturno .cards-container,
+  body.modo-noturno [class*="card"],
+  body.modo-noturno .blog-card,
+  body.modo-noturno .product-card,
+  body.modo-noturno .service-card,
+  body.modo-noturno .info-card,
+  body.modo-noturno .post-card {
+    background-color: #1a1a1a !important;
+    border: 1px solid #333 !important;
+    color: #fff !important;
+  }
+
+  /* Cards - Títulos dentro dos cards */
+  body.modo-noturno .card h1,
+  body.modo-noturno .card h2,
+  body.modo-noturno .card h3,
+  body.modo-noturno .card h4,
+  body.modo-noturno .card h5,
+  body.modo-noturno .card h6,
+  body.modo-noturno .cards h1,
+  body.modo-noturno .cards h2,
+  body.modo-noturno .cards h3,
+  body.modo-noturno .cards h4,
+  body.modo-noturno .cards h5,
+  body.modo-noturno .cards h6 {
+    color: #fff !important;
+  }
+
+  /* Cards - Textos dentro dos cards */
+  body.modo-noturno .card p,
+  body.modo-noturno .card span,
+  body.modo-noturno .card li,
+  body.modo-noturno .card a,
+  body.modo-noturno .cards p,
+  body.modo-noturno .cards span,
+  body.modo-noturno .cards li,
+  body.modo-noturno .cards a {
+    color: #e0e0e0 !important;
+  }
+
+  /* Cards - Botões dentro dos cards */
+  body.modo-noturno .card button,
+  body.modo-noturno .card .btn,
+  body.modo-noturno .cards button,
+  body.modo-noturno .cards .btn {
+    background-color: #333 !important;
+    color: #fff !important;
+    border: 1px solid #555 !important;
+  }
+
+  /* Cards - Imagens nos cards (escurecer) */
+  body.modo-noturno .card img,
+  body.modo-noturno .cards img {
+    opacity: 0.8;
+    filter: brightness(0.7);
+  }
+
+  /* Seções e containers */
+  body.modo-noturno section,
+  body.modo-noturno article,
+  body.modo-noturno .section,
+  body.modo-noturno .container,
+  body.modo-noturno .box {
+    background-color: #1a1a1a !important;
+    border-color: #333 !important;
+  }
+
+  /* Tabelas */
+  body.modo-noturno table,
+  body.modo-noturno thead,
+  body.modo-noturno tbody,
+  body.modo-noturno tr,
+  body.modo-noturno th,
+  body.modo-noturno td {
+    background-color: #1a1a1a !important;
+    color: #fff !important;
+    border-color: #444 !important;
+  }
+
+  /* Inputs e formulários */
+  body.modo-noturno input,
+  body.modo-noturno textarea,
+  body.modo-noturno select {
+    background-color: #1a1a1a !important;
+    color: #fff !important;
+    border: 1px solid #444 !important;
+  }
+
+  /* Links */
+  body.modo-noturno a {
+    color: #64b5f6 !important;
   }
 
   body.modo-noturno #accessibility-menu {
     border: 2px solid #fff;
   }
 
-  /* Botão ativo (lendo ou modo noturno) */
+  /* Botão ativo */
   #accessibility-menu button.ativo {
     background: #3498db;
     color: white;
