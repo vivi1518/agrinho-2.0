@@ -153,24 +153,12 @@ footer{
     </a>
 </div>
 
-<!-- Caixa de Acessibilidade -->
-<div class="acessibilidade" aria-label="Ferramentas de acessibilidade">
-  
-    <button onclick="alterarFonte(1)" aria-label="Aumentar fonte">A+</button>
-
-    <button onclick="alterarFonte(-1)" aria-label="Diminuir fonte">A−</button>
-
-    <button onclick="alternarTema()" aria-label="Alternar modo escuro">
-        🌙
-    </button>
-
-    <button onclick="lerConteudo()" aria-label="Ler conteúdo da página">
-        🔊
-    </button>
-
-    <button onclick="pararLeitura()" aria-label="Parar leitura">
-        ⏹
-    </button>
+<div id="acessibilidade">
+    <button onclick="alterarFonte(1)">A+</button>
+    <button onclick="alterarFonte(-1)">A-</button>
+    <button onclick="alternarTema()">🌙</button>
+    <button onclick="lerPagina()">🔊</button>
+    <button onclick="pararLeitura()">⏹</button>
 </div>
     
 @media(max-width:768px){
