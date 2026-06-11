@@ -1,5 +1,4 @@
-# 🌱 Agro Forte, Futuro Sustentável
-
+# 🌱 AgroVision
 ## 📖 Sobre o Projeto
 
 Este projeto foi desenvolvido para o **Programa Agrinho 2026**, com o tema **"Agro forte, futuro sustentável: equilíbrio entre produção e meio ambiente"**.
