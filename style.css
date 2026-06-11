@@ -485,48 +485,53 @@ footer{
 /* ==========================
    ACESSIBILIDADE
 ========================== */
-#acessibilidade {
+/* Caixa flutuante de acessibilidade */
+.acessibilidade {
     position: fixed;
     top: 50%;
     right: 20px;
     transform: translateY(-50%);
+
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    z-index: 9999;
+    gap: 10px;
 
-    background: rgba(0, 0, 0, 0.1); /* leve fundo para destacar */
-    padding: 10px;
-    border-radius: 12px;
+    z-index: 9999;
 }
 
-#acessibilidade button {
-    width: 60px;
-    height: 60px;
+.acessibilidade button {
+    width: 50px;
+    height: 50px;
+
     border: none;
     border-radius: 50%;
-    background: #007BFF;
-    color: #fff;
-    font-size: 20px;
-    font-weight: bold;
+
+    background: #2e7d32;
+    color: white;
+
+    font-size: 18px;
     cursor: pointer;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,.2);
 
-    box-shadow: 0 4px 12px rgba(0,0,0,0.35);
-    transition: all 0.2s ease;
+    transition: 0.3s;
 }
 
-#acessibilidade button:hover {
-    background: #0056b3;
+.acessibilidade button:hover {
     transform: scale(1.1);
+    background: #1b5e20;
 }
 
-#acessibilidade button:focus {
-    outline: 3px solid yellow;
-    outline-offset: 3px;
+/* Modo escuro */
+body.modo-escuro {
+    background-color: #121212;
+    color: white;
+}
+
+body.modo-escuro header,
+body.modo-escuro footer,
+body.modo-escuro section {
+    background-color: #1e1e1e;
 }
 
 /* ==========================
