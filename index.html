@@ -519,7 +519,7 @@ nav{
     color: #fff !important;
   }
   
-  /* Tags gerais */
+  /* Tags gerais - REMOVE LINHAS */
   body.modo-noturno p, 
   body.modo-noturno h1, 
   body.modo-noturno h2, 
@@ -528,116 +528,124 @@ nav{
   body.modo-noturno h5, 
   body.modo-noturno h6, 
   body.modo-noturno span, 
-  body.modo-noturno a,
   body.modo-noturno li,
   body.modo-noturno td,
   body.modo-noturno th,
-  body.modo-noturno label {
+  body.modo-noturno label,
+  body.modo-noturno div {
     color: #fff !important;
+    text-decoration: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
   }
 
-  /* Cards - Container principal */
+  /* Links - REMOVE LINHA DE BAIXO */
+  body.modo-noturno a {
+    color: #64b5f6 !important;
+    text-decoration: none !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+  }
+
+  body.modo-noturno a:hover {
+    text-decoration: none !important;
+    border-bottom: none !important;
+  }
+
+  body.modo-noturno a:visited {
+    color: #90caf9 !important;
+    text-decoration: none !important;
+  }
+
+  /* Títulos com linhas (h1, h2, etc) - REMOVE */
+  body.modo-noturno h1::after,
+  body.modo-noturno h2::after,
+  body.modo-noturno h3::after,
+  body.modo-noturno h4::after {
+    display: none !important;
+  }
+
+  body.modo-noturno h1 span::after,
+  body.modo-noturno h2 span::after,
+  body.modo-noturno h3 span::after {
+    display: none !important;
+  }
+
+  /* Cards */
   body.modo-noturno .card,
   body.modo-noturno .cards,
   body.modo-noturno .card-container,
-  body.modo-noturno .cards-container,
-  body.modo-noturno [class*="card"],
-  body.modo-noturno .blog-card,
-  body.modo-noturno .product-card,
-  body.modo-noturno .service-card,
-  body.modo-noturno .info-card,
-  body.modo-noturno .post-card {
+  body.modo-noturno [class*="card"] {
     background-color: #1a1a1a !important;
     border: 1px solid #333 !important;
     color: #fff !important;
+    text-decoration: none !important;
   }
 
-  /* Cards - Títulos dentro dos cards */
   body.modo-noturno .card h1,
   body.modo-noturno .card h2,
   body.modo-noturno .card h3,
-  body.modo-noturno .card h4,
-  body.modo-noturno .card h5,
-  body.modo-noturno .card h6,
-  body.modo-noturno .cards h1,
-  body.modo-noturno .cards h2,
-  body.modo-noturno .cards h3,
-  body.modo-noturno .cards h4,
-  body.modo-noturno .cards h5,
-  body.modo-noturno .cards h6 {
+  body.modo-noturno .card h4 {
     color: #fff !important;
+    text-decoration: none !important;
+    border: none !important;
   }
 
-  /* Cards - Textos dentro dos cards */
   body.modo-noturno .card p,
   body.modo-noturno .card span,
   body.modo-noturno .card li,
-  body.modo-noturno .card a,
-  body.modo-noturno .cards p,
-  body.modo-noturno .cards span,
-  body.modo-noturno .cards li,
-  body.modo-noturno .cards a {
+  body.modo-noturno .card a {
     color: #e0e0e0 !important;
+    text-decoration: none !important;
   }
 
-  /* Cards - Botões dentro dos cards */
   body.modo-noturno .card button,
-  body.modo-noturno .card .btn,
-  body.modo-noturno .cards button,
-  body.modo-noturno .cards .btn {
+  body.modo-noturno .card .btn {
     background-color: #333 !important;
     color: #fff !important;
     border: 1px solid #555 !important;
+    text-decoration: none !important;
   }
 
-  /* Cards - Imagens nos cards (escurecer) */
-  body.modo-noturno .card img,
-  body.modo-noturno .cards img {
+  body.modo-noturno .card img {
     opacity: 0.8;
     filter: brightness(0.7);
   }
 
-  /* Seções e containers */
+  /* Seções */
   body.modo-noturno section,
   body.modo-noturno article,
-  body.modo-noturno .section,
-  body.modo-noturno .container,
-  body.modo-noturno .box {
+  body.modo-noturno .section {
     background-color: #1a1a1a !important;
-    border-color: #333 !important;
+    text-decoration: none !important;
   }
 
   /* Tabelas */
   body.modo-noturno table,
-  body.modo-noturno thead,
-  body.modo-noturno tbody,
   body.modo-noturno tr,
   body.modo-noturno th,
   body.modo-noturno td {
     background-color: #1a1a1a !important;
     color: #fff !important;
-    border-color: #444 !important;
+    border: 1px solid #444 !important;
   }
 
-  /* Inputs e formulários */
+  /* Inputs */
   body.modo-noturno input,
   body.modo-noturno textarea,
   body.modo-noturno select {
     background-color: #1a1a1a !important;
     color: #fff !important;
     border: 1px solid #444 !important;
-  }
-
-  /* Links */
-  body.modo-noturno a {
-    color: #64b5f6 !important;
+    text-decoration: none !important;
   }
 
   body.modo-noturno #accessibility-menu {
     border: 2px solid #fff;
   }
 
-  /* Botão ativo */
+  /* Botões ativos */
   #accessibility-menu button.ativo {
     background: #3498db;
     color: white;
