@@ -155,13 +155,23 @@ footer{
 
 /* Acessibilidade */
 
-<!-- Menu de Acessibilidade -->
-<div id="acessibilidade">
-    <button onclick="alterarFonte(2)" aria-label="Aumentar fonte">A+</button>
-    <button onclick="alterarFonte(-2)" aria-label="Diminuir fonte">A-</button>
-    <button onclick="alternarTema()" aria-label="Alternar tema">🌙</button>
-    <button onclick="lerPagina()" aria-label="Ler página">🔊</button>
-    <button onclick="pararLeitura()" aria-label="Parar leitura">⏹</button>
+<!-- Caixa de acessibilidade -->
+<div class="acessibilidade">
+    <button id="aumentarFonte" title="Aumentar fonte">A+</button>
+
+    <button id="diminuirFonte" title="Diminuir fonte">A−</button>
+
+    <button id="alternarTema" title="Modo escuro/claro">
+        🌙
+    </button>
+
+    <button id="lerConteudo" title="Ler conteúdo">
+        🔊
+    </button>
+
+    <button id="pararLeitura" title="Parar leitura">
+        ⏹
+    </button>
 </div>
     
 @media(max-width:768px){
@@ -317,12 +327,6 @@ nav{
             Saiba mais sobre sustentabilidade
         </a>
 
-    </div>
-</section>
-
-        <blockquote>
-            "Produzir com responsabilidade hoje é garantir a vida amanhã."
-        </blockquote>
     </div>
 </section>
 
