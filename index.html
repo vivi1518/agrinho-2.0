@@ -155,27 +155,16 @@ footer{
 
 /* Acessibilidade */
 
-#acessibilidade{
-    position:fixed;
-    right:15px;
-    top:50%;
-    transform:translateY(-50%);
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-    z-index:9999;
-}
+<div id="acessibilidade">
+    <button onclick="alterarFonte(2)" aria-label="Aumentar fonte">
+        A+
+    </button>
 
-#acessibilidade button{
-    width:50px;
-    height:50px;
-    border:none;
-    border-radius:50%;
-    cursor:pointer;
-    font-size:18px;
-    box-shadow:0 3px 10px rgba(0,0,0,.25);
-}
-
+    <button onclick="alterarFonte(-2)" aria-label="Diminuir fonte">
+        A-
+    </button>
+</div>
+    
 @media(max-width:768px){
 
 .hero h1{
