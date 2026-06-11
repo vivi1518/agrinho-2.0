@@ -438,51 +438,86 @@ nav{
     <p>🌱 Agro Forte, Futuro Sustentável | 2026</p>
 </footer>
 
+<!-- Início dos Botões de Acessibilidade -->
+<div id="accessibility-menu">
+  <button onclick="mudarTamanho(10)" title="Aumentar Fonte">A+</button>
+  <button onclick="mudarTamanho(-10)" title="Diminuir Fonte">A-</button>
+  <button onclick="altoContraste()" title="Alto Contraste">👁️</button>
+  <button onclick="resetar()" title="Resetar">↺</button>
+</div>
+
+<style>
+  /* Estilos do Menu Flutuante */
+  #accessibility-menu {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #2ecc71; /* Cor do seu site (verde aqui) */
+    padding: 10px;
+    border-radius: 50px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 9999;
+    display: flex;
+    gap: 5px;
+  }
+
+  #accessibility-menu button {
+    background: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #333;
+    font-size: 16px;
+    transition: 0.2s;
+  }
+
+  #accessibility-menu button:hover {
+    background: #f0f0f0;
+    transform: scale(1.1);
+  }
+
+  /* Estilos para Alto Contraste */
+  body.contraste-alto {
+    background-color: #000 !important;
+    color: #fff !important;
+  }
+  
+  body.contraste-alto p, 
+  body.contraste-alto h1, 
+  body.contraste-alto h2, 
+  body.contraste-alto h3, 
+  body.contraste-alto span, 
+  body.contraste-alto a {
+    color: #fff !important;
+  }
+
+  body.contraste-alto #accessibility-menu {
+    border: 2px solid #fff;
+  }
+</style>
+
 <script>
-let tamanhoFonte = 16;
+  let fontSize = 100; // Zoom padrão
 
-function alterarFonte(valor){
-    tamanhoFonte += valor;
-    document.body.style.fontSize = tamanhoFonte + "px";
-}
+  function mudarTamanho(tamanho) {
+    fontSize += tamanho;
+    if(fontSize < 50) fontSize = 50; // Limite mínimo
+    if(fontSize > 200) fontSize = 200; // Limite máximo
+    
+    document.documentElement.style.fontSize = fontSize + '%';
+  }
 
-function alternarTema(){
-    document.body.classList.toggle("dark");
+  function altoContraste() {
+    document.body.classList.toggle('contraste-alto');
+  }
 
-    localStorage.setItem(
-        "tema",
-        document.body.classList.contains("dark")
-        ? "dark"
-        : "light"
-    );
-}
-
-if(localStorage.getItem("tema")==="dark"){
-    document.body.classList.add("dark");
-}
-
-function lerPagina(){
-
-    speechSynthesis.cancel();
-
-    const texto =
-        document.querySelector("main")
-        ? document.querySelector("main").innerText
-        : document.body.innerText;
-
-    const fala = new SpeechSynthesisUtterance(texto);
-
-    fala.lang="pt-BR";
-    fala.rate=1;
-    fala.pitch=1;
-
-    speechSynthesis.speak(fala);
-}
-
-function pararLeitura(){
-    speechSynthesis.cancel();
-}
+  function resetar() {
+    fontSize = 100;
+    document.documentElement.style.fontSize = '100%';
+    document.body.classList.remove('contraste-alto');
+  }
 </script>
-
-</body>
-</html>
+<!-- Fim dos Botões de Acessibilidade -->
