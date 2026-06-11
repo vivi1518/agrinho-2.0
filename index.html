@@ -443,6 +443,8 @@ nav{
   <button onclick="mudarTamanho(10)" title="Aumentar Fonte">A+</button>
   <button onclick="mudarTamanho(-10)" title="Diminuir Fonte">A-</button>
   <button onclick="modoNoturno()" title="Modo Noturno" id="btn-noturno">🌙</button>
+  <button onclick="lerPagina()" title="Ler Página" id="btn-ler">🔊</button>
+  <button onclick="pararLeitura()" title="Parar Leitura">⏹️</button>
   <button onclick="resetar()" title="Resetar">↺</button>
 </div>
 
@@ -479,7 +481,7 @@ nav{
     transform: scale(1.1);
   }
 
-  /* Estilos para Modo Noturno (Alto Contraste) */
+  /* Estilos para Modo Noturno */
   body.modo-noturno {
     background-color: #000 !important;
     color: #fff !important;
@@ -507,15 +509,29 @@ nav{
     border: 2px solid #fff;
   }
 
-  /* Botão ativo */
+  /* Botão ativo (lendo ou modo noturno) */
   #accessibility-menu button.ativo {
     background: #3498db;
     color: white;
+  }
+
+  #accessibility-menu button.lendo {
+    background: #e74c3c;
+    color: white;
+    animation: pulsando 1s infinite;
+  }
+
+  @keyframes pulsando {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
   }
 </style>
 
 <script>
   let fontSize = 100;
+  let synth = window.speechSynthesis;
+  let lendo = false;
 
   function mudarTamanho(tamanho) {
     fontSize += tamanho;
@@ -533,10 +549,63 @@ nav{
     if (body.classList.contains('modo-noturno')) {
       botao.innerHTML = '☀️';
       botao.title = 'Modo Claro';
+      botao.classList.add('ativo');
     } else {
       botao.innerHTML = '🌙';
       botao.title = 'Modo Noturno';
+      botao.classList.remove('ativo');
     }
+  }
+
+  function lerPagina() {
+    if (lendo) {
+      synth.cancel();
+      lendo = false;
+      document.getElementById('btn-ler').classList.remove('lendo');
+      return;
+    }
+
+    let texto = '';
+    const elementos = document.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li, td, th, span, a');
+    
+    elementos.forEach(el => {
+      if (el.textContent.trim() !== '') {
+        texto += el.textContent + '. ';
+      }
+    });
+
+    if (texto.trim() === '') {
+      alert('Nenhum texto encontrado para ler!');
+      return;
+    }
+
+    let utterance = new SpeechSynthesisUtterance(texto);
+    
+    let voices = synth.getVoices();
+    let vozPT = voices.find(v => v.lang.includes('pt'));
+    if (vozPT) utterance.voice = vozPT;
+    
+    utterance.lang = 'pt-BR';
+    utterance.rate = 1;
+    utterance.pitch = 1;
+
+    utterance.onstart = () => {
+      lendo = true;
+      document.getElementById('btn-ler').classList.add('lendo');
+    };
+
+    utterance.onend = () => {
+      lendo = false;
+      document.getElementById('btn-ler').classList.remove('lendo');
+    };
+
+    synth.speak(utterance);
+  }
+
+  function pararLeitura() {
+    synth.cancel();
+    lendo = false;
+    document.getElementById('btn-ler').classList.remove('lendo');
   }
 
   function resetar() {
@@ -545,6 +614,13 @@ nav{
     document.body.classList.remove('modo-noturno');
     document.getElementById('btn-noturno').innerHTML = '🌙';
     document.getElementById('btn-noturno').title = 'Modo Noturno';
+    document.getElementById('btn-noturno').classList.remove('ativo');
+    synth.cancel();
+    lendo = false;
   }
+
+  window.speechSynthesis.onvoiceschanged = () => {
+    window.speechSynthesis.getVoices();
+  };
 </script>
 <!-- Fim dos Botões de Acessibilidade -->
