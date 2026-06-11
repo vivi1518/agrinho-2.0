@@ -1,7 +1,7 @@
 ```css
-/* ==========================
+/* 
    RESET
-========================== */
+*/
 *{
     margin:0;
     padding:0;
@@ -22,9 +22,9 @@ body{
     overflow-x:hidden;
 }
 
-/* ==========================
+/* 
    MODO ESCURO
-========================== */
+ */
 body.dark,
 .dark-mode{
     background:#121212;
@@ -532,17 +532,73 @@ footer{
 /* ==========================
    RESPONSIVIDADE
 ========================== */
-@media(max-width:768px){
-    #acessibilidade {
+/* ==========================
+   RESPONSIVIDADE CORRIGIDA
+========================== */
+
+@media (max-width: 768px){
+
+    .cards-grid{
+        grid-template-columns: 1fr;
+    }
+
+    .galeria{
+        grid-template-columns: 1fr;
+    }
+
+    nav{
+        gap: 8px;
+    }
+
+    .hero{
+        text-align: center;
+    }
+
+    /* acessibilidade mobile */
+    #acessibilidade{
         right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
         gap: 10px;
         padding: 8px;
     }
 
-    #acessibilidade button {
+    #acessibilidade button{
         width: 45px;
         height: 45px;
         font-size: 16px;
+    }
+}
+
+/* ==========================
+   FULL HD
+========================== */
+
+@media (min-width: 1920px){
+    html{
+        font-size: 18px;
+    }
+
+    section{
+        max-width: 1800px;
+    }
+}
+
+/* ==========================
+   ULTRAWIDE
+========================== */
+
+@media (min-width: 2560px){
+    html{
+        font-size: 20px;
+    }
+
+    section{
+        max-width: 2200px;
+    }
+
+    .hero h1{
+        font-size: 5rem;
     }
 }
 
