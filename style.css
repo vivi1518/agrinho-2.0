@@ -482,33 +482,46 @@ footer{
 /* ==========================
    ACESSIBILIDADE
 ========================== */
+
 #acessibilidade{
-    position:fixed;
-    top:50%;
-    right:15px;
-    transform:translateY(-50%);
-    display:flex;
-    flex-direction:column;
-    gap:8px;
-    z-index:9999;
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    z-index: 9999;
 }
 
 #acessibilidade button{
-    width:50px;
-    height:50px;
-    border:none;
-    border-radius:50%;
-    background:#2c7a4b;
-    color:white;
-    font-size:18px;
-    cursor:pointer;
-    box-shadow:0 2px 5px rgba(0,0,0,.3);
+    width: 55px;
+    height: 55px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #2e8b57;
+    color: white;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,.25);
 }
 
 #acessibilidade button:hover{
-    background:#1f5a36;
+    background: #1f6b43;
+    transform: scale(1.08);
 }
-
 /* ==========================
    IMAGENS
 ========================== */
@@ -538,15 +551,19 @@ img{
         text-align:center;
     }
 
+@media (max-width: 768px){
+
     #acessibilidade{
-        right:5px;
+        right: 10px;
+        gap: 10px;
     }
 
     #acessibilidade button{
-        width:42px;
-        height:42px;
-        font-size:15px;
+        width: 45px;
+        height: 45px;
+        font-size: 16px;
     }
+
 }
 /* ==========================
    FULL HD
