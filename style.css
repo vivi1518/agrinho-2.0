@@ -22,26 +22,7 @@ body{
     overflow-x:hidden;
 }
 
-/* 
-   MODO ESCURO
- */
-body.dark,
-.dark-mode{
-    background:#121212;
-    color:#eee;
-}
 
-body.dark .card,
-.dark-mode .card{
-    background:#1e1e1e;
-}
-
-body.dark header,
-body.dark footer,
-.dark-mode header,
-.dark-mode footer{
-    background:#1a1a1a;
-}
 
 /* ==========================
    NAVEGAÇÃO
@@ -485,61 +466,7 @@ footer{
 /* ==========================
    ACESSIBILIDADE
 ========================== */
-#acessibilidade{
-    position:fixed;
-    top:50%;
-    right:20px;
-    transform:translateY(-50%);
 
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-
-    z-index:9999;
-}
-
-#acessibilidade button{
-    width:50px;
-    height:50px;
-
-    border:none;
-    border-radius:50%;
-
-    background:#2e8b57;
-    color:white;
-
-    font-size:18px;
-    font-weight:bold;
-
-    cursor:pointer;
-
-    box-shadow:0 4px 10px rgba(0,0,0,.2);
-
-    transition:.3s;
-}
-
-#acessibilidade button:hover{
-    transform:scale(1.1);
-    background:#256d45;
-}
-
-#acessibilidade button:focus{
-    outline:3px solid #ffeb3b;
-    outline-offset:3px;
-}
-
-@media(max-width:768px){
-
-    #acessibilidade{
-        right:10px;
-    }
-
-    #acessibilidade button{
-        width:45px;
-        height:45px;
-        font-size:16px;
-    }
-}
 /* ==========================
    RESPONSIVIDADE CORRIGIDA
 ========================== */
