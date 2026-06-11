@@ -51,78 +51,7 @@ function toggleGaleria() {
 /* ==========================
    ACESSIBILIDADE
 ========================== */
-let tamanhoFonte = 100;
 
-function alterarFonte(valor){
-
-    tamanhoFonte += valor * 10;
-
-    if(tamanhoFonte < 70){
-        tamanhoFonte = 70;
-    }
-
-    if(tamanhoFonte > 150){
-        tamanhoFonte = 150;
-    }
-
-    document.documentElement.style.fontSize =
-        tamanhoFonte + "%";
-}
-
-function alternarTema(){
-
-    document.body.classList.toggle("dark");
-
-    localStorage.setItem(
-        "tema",
-        document.body.classList.contains("dark")
-        ? "dark"
-        : "light"
-    );
-}
-
-if(localStorage.getItem("tema") === "dark"){
-
-    document.body.classList.add("dark");
-}
-
-function lerPagina(){
-
-    speechSynthesis.cancel();
-
-    const principal =
-        document.querySelector("main");
-
-    if(!principal){
-        return;
-    }
-
-    let texto = "";
-
-    principal
-    .querySelectorAll(
-        "h1,h2,h3,h4,h5,h6,p,li"
-    )
-    .forEach(elemento => {
-
-        texto += elemento.innerText + ". ";
-    });
-
-    const fala =
-        new SpeechSynthesisUtterance(texto);
-
-    fala.lang = "pt-BR";
-    fala.rate = 1;
-    fala.pitch = 1;
-    fala.volume = 1;
-
-    speechSynthesis.speak(fala);
-}
-
-function pararLeitura(){
-
-    speechSynthesis.cancel();
-}
 /* ==========================
    AJUSTE DE TELA
 ========================== */
