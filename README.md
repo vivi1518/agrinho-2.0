@@ -48,7 +48,7 @@ Com o objetivo de promover inclusão digital, o site conta com funcionalidades q
 
 * Controle do tamanho da fonte;
 * Alternância entre tema claro e escuro;
-* Leitura automática do conteúdo principal utilizando a **SpeechSynthesis API**;
+* Leitura automática do conteúdo principal;
 * Botão para interromper a leitura a qualquer momento;
 * Interface responsiva para diferentes tamanhos de tela.
 
@@ -86,6 +86,6 @@ Projeto desenvolvido por **Viviane Aparecida Martins Corrêa** para participaç�
 
 ## 🌎 Mensagem Final
 
-Construir um futuro sustentável depende das escolhas feitas no presente. Valorizar o campo, incentivar práticas responsáveis e utilizar a tecnologia a favor do meio ambiente são passos essenciais para garantir um planeta mais equilibrado para todos.
+Para construir um futuro sustentável depende das escolhas feitas no presente. Valorizar o campo, incentivar práticas responsáveis e utilizar a tecnologia a favor do meio ambiente são passos essenciais para garantir um planeta mais equilibrado para todos.
 
-**Agro forte, futuro sustentável: produzir hoje para preservar o amanhã.**
+**AgroVision: produzir hoje para preservar o amanhã.**
