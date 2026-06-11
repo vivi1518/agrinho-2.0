@@ -134,65 +134,6 @@ document.getElementById("pararLeitura")
     speechSynthesis.cancel();
 });
 
-/* ==========================
-   MODO ESCURO
-========================== */
-
-function alternarTema() {
-
-    document.body.classList.toggle("dark");
-
-    localStorage.setItem(
-        "tema",
-        document.body.classList.contains("dark")
-        ? "dark"
-        : "light"
-    );
-}
-
-/* Carrega tema salvo */
-
-window.addEventListener("DOMContentLoaded", () => {
-
-    if (
-        localStorage.getItem("tema") === "dark"
-    ) {
-
-        document.body.classList.add("dark");
-
-    }
-});
-
-/* ==========================
-   LEITURA POR VOZ
-========================== */
-
-function lerPagina() {
-
-    pararLeitura();
-
-    const conteudo =
-    document.querySelector("main") ||
-    document.querySelector("section");
-
-    const texto = conteudo
-        ? conteudo.innerText
-        : document.body.innerText;
-
-    const fala =
-    new SpeechSynthesisUtterance(texto);
-
-    fala.lang = "pt-BR";
-    fala.rate = 1;
-    fala.pitch = 1;
-
-    speechSynthesis.speak(fala);
-}
-
-function pararLeitura() {
-
-    speechSynthesis.cancel();
-}
 
 /* ==========================
    AJUSTE DE TELA
