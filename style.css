@@ -486,44 +486,47 @@ footer{
    ACESSIBILIDADE
 ========================== */
 
-#acessibilidade{
+#acessibilidade {
     position: fixed;
     top: 50%;
     right: 20px;
     transform: translateY(-50%);
-
     display: flex;
     flex-direction: column;
     gap: 15px;
-
     z-index: 9999;
+
+    /* Fundo leve atrás dos botões para destacar em qualquer página */
+    background: rgba(0,0,0,0.1);
+    padding: 10px;
+    border-radius: 12px;
 }
 
-#acessibilidade button{
-    width: 55px;
-    height: 55px;
-
+#acessibilidade button {
+    width: 60px;
+    height: 60px;
     border: none;
     border-radius: 50%;
-
-    background: #2e8b57;
-    color: white;
-
-    font-size: 18px;
+    background: #007BFF; /* Azul mais visível */
+    color: #fff;
+    font-size: 20px;
     font-weight: bold;
-
     cursor: pointer;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
-    box-shadow: 0 4px 12px rgba(0,0,0,.25);
+    box-shadow: 0 4px 12px rgba(0,0,0,.35);
+    transition: all 0.2s ease;
 }
 
-#acessibilidade button:hover{
-    background: #1f6b43;
-    transform: scale(1.08);
+#acessibilidade button:hover {
+    background: #0056b3;
+    transform: scale(1.1);
+}
+
+#acessibilidade button:focus {
+    outline: 3px solid yellow;
+    outline-offset: 3px;
 }
 /* ==========================
    IMAGENS
