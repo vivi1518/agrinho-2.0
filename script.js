@@ -51,6 +51,48 @@ function toggleGaleria() {
 /* ==========================
    ACESSIBILIDADE
 ========================== */
+// Controle do tamanho da fonte
+let tamanhoFonte = 100;
+
+function alterarFonte(valor) {
+    tamanhoFonte += valor * 10;
+
+    if (tamanhoFonte < 80) tamanhoFonte = 80;
+    if (tamanhoFonte > 150) tamanhoFonte = 150;
+
+    document.body.style.fontSize = tamanhoFonte + "%";
+}
+
+// Alternar modo escuro
+function alternarTema() {
+    document.body.classList.toggle("dark-mode");
+}
+
+// Leitura por voz
+function lerConteudo() {
+    speechSynthesis.cancel();
+
+    const principal = document.querySelector("main") || document.body;
+
+    let texto = "";
+
+    principal.querySelectorAll(
+        "h1, h2, h3, p, li, span"
+    ).forEach(elemento => {
+        texto += elemento.innerText + ". ";
+    });
+
+    const fala = new SpeechSynthesisUtterance(texto);
+    fala.lang = "pt-BR";
+    fala.rate = 1;
+
+    speechSynthesis.speak(fala);
+}
+
+// Parar leitura
+function pararLeitura() {
+    speechSynthesis.cancel();
+}
 
 /* ==========================
    AJUSTE DE TELA
