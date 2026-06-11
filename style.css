@@ -486,57 +486,33 @@ footer{
    ACESSIBILIDADE
 ========================== */
 /* Caixa flutuante de acessibilidade */
-.acessibilidade {
-    position: fixed;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
+.acessibilidade{
+    position:fixed;
+    top:50%;
+    right:20px;
+    transform:translateY(-50%);
 
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
 
-    z-index: 9999;
+    z-index:9999;
 }
 
-.acessibilidade button {
-    width: 50px;
-    height: 50px;
+.acessibilidade button{
+    width:50px;
+    height:50px;
 
-    border: none;
-    border-radius: 50%;
+    border:none;
+    border-radius:50%;
 
-    background: #2e7d32;
-    color: white;
+    background:#2e7d32;
+    color:white;
 
-    font-size: 18px;
-    cursor: pointer;
-
-    box-shadow: 0 4px 10px rgba(0,0,0,.2);
-
-    transition: 0.3s;
+    cursor:pointer;
+    font-size:18px;
 }
 
-.acessibilidade button:hover {
-    transform: scale(1.1);
-    background: #1b5e20;
-}
-
-/* Modo escuro */
-body.modo-escuro {
-    background-color: #121212;
-    color: white;
-}
-
-body.modo-escuro header,
-body.modo-escuro footer,
-body.modo-escuro section {
-    background-color: #1e1e1e;
-}
-
-/* ==========================
-   RESPONSIVIDADE
-========================== */
 /* ==========================
    RESPONSIVIDADE CORRIGIDA
 ========================== */
