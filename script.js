@@ -51,19 +51,88 @@ function toggleGaleria() {
 /* ==========================
    ACESSIBILIDADE
 ========================== */
+/* ===== Controle do tamanho da fonte ===== */
 
-let tamanhoFonte = 16;
+let tamanhoFonte = 100;
 
-function alterarFonte(valor) {
+document.getElementById("aumentarFonte")
+    .addEventListener("click", () => {
 
-    tamanhoFonte += valor;
-
-    if (tamanhoFonte < 12) tamanhoFonte = 12;
-    if (tamanhoFonte > 32) tamanhoFonte = 32;
+    tamanhoFonte += 10;
 
     document.documentElement.style.fontSize =
-    tamanhoFonte + "px";
-}
+        tamanhoFonte + "%";
+});
+
+document.getElementById("diminuirFonte")
+    .addEventListener("click", () => {
+
+    if (tamanhoFonte > 70) {
+        tamanhoFonte -= 10;
+
+        document.documentElement.style.fontSize =
+            tamanhoFonte + "%";
+    }
+});
+
+
+/* ===== Modo escuro ===== */
+
+document.getElementById("alternarTema")
+    .addEventListener("click", () => {
+
+    document.body.classList.toggle("modo-escuro");
+});
+
+
+/* ===== Leitura por voz ===== */
+
+let fala;
+
+document.getElementById("lerConteudo")
+    .addEventListener("click", () => {
+
+    speechSynthesis.cancel();
+
+    /* Seleciona apenas o conteúdo principal */
+    const principal =
+        document.querySelector("main");
+
+    if (!principal) {
+        alert(
+            "Adicione uma tag <main> ao conteúdo principal."
+        );
+        return;
+    }
+
+    let texto = "";
+
+    /* Lê apenas títulos e parágrafos */
+    principal.querySelectorAll(
+        "h1, h2, h3, h4, h5, h6, p, li"
+    ).forEach(elemento => {
+
+        texto += elemento.innerText + ". ";
+    });
+
+    fala = new SpeechSynthesisUtterance(texto);
+
+    fala.lang = "pt-BR";
+    fala.rate = 1;
+    fala.pitch = 1;
+    fala.volume = 1;
+
+    speechSynthesis.speak(fala);
+});
+
+
+/* ===== Parar leitura ===== */
+
+document.getElementById("pararLeitura")
+    .addEventListener("click", () => {
+
+    speechSynthesis.cancel();
+});
 
 /* ==========================
    MODO ESCURO
