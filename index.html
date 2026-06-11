@@ -442,9 +442,7 @@ nav{
 <div id="accessibility-menu">
   <button onclick="mudarTamanho(10)" title="Aumentar Fonte">A+</button>
   <button onclick="mudarTamanho(-10)" title="Diminuir Fonte">A-</button>
-  <button onclick="altoContraste()" title="Alto Contraste">👁️</button>
-  <button onclick="lerPagina()" title="Ler Página" id="btn-ler">🔊</button>
-  <button onclick="pararLeitura()" title="Parar Leitura">⏹️</button>
+  <button onclick="modoNoturno()" title="Modo Noturno" id="btn-noturno">🌙</button>
   <button onclick="resetar()" title="Resetar">↺</button>
 </div>
 
@@ -481,46 +479,43 @@ nav{
     transform: scale(1.1);
   }
 
-  /* Estilos para Alto Contraste */
-  body.contraste-alto {
+  /* Estilos para Modo Noturno (Alto Contraste) */
+  body.modo-noturno {
     background-color: #000 !important;
     color: #fff !important;
   }
   
-  body.contraste-alto p, 
-  body.contraste-alto h1, 
-  body.contraste-alto h2, 
-  body.contraste-alto h3, 
-  body.contraste-alto span, 
-  body.contraste-alto a,
-  body.contraste-alto li,
-  body.contraste-alto td,
-  body.contraste-alto th {
+  body.modo-noturno p, 
+  body.modo-noturno h1, 
+  body.modo-noturno h2, 
+  body.modo-noturno h3, 
+  body.modo-noturno h4, 
+  body.modo-noturno h5, 
+  body.modo-noturno h6, 
+  body.modo-noturno span, 
+  body.modo-noturno a,
+  body.modo-noturno li,
+  body.modo-noturno td,
+  body.modo-noturno th,
+  body.modo-noturno div,
+  body.modo-noturno section,
+  body.modo-noturno article {
     color: #fff !important;
   }
 
-  body.contraste-alto #accessibility-menu {
+  body.modo-noturno #accessibility-menu {
     border: 2px solid #fff;
   }
 
-  /* Botão ativo (lendo) */
+  /* Botão ativo */
   #accessibility-menu button.ativo {
-    background: #e74c3c;
+    background: #3498db;
     color: white;
-    animation: pulsando 1s infinite;
-  }
-
-  @keyframes pulsando {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
   }
 </style>
 
 <script>
   let fontSize = 100;
-  let synth = window.speechSynthesis;
-  let lendo = false;
 
   function mudarTamanho(tamanho) {
     fontSize += tamanho;
@@ -529,76 +524,27 @@ nav{
     document.documentElement.style.fontSize = fontSize + '%';
   }
 
-  function altoContraste() {
-    document.body.classList.toggle('contraste-alto');
-  }
-
-  function lerPagina() {
-    if (lendo) {
-      synth.cancel();
-      lendo = false;
-      document.getElementById('btn-ler').classList.remove('ativo');
-      return;
+  function modoNoturno() {
+    const body = document.body;
+    const botao = document.getElementById('btn-noturno');
+    
+    body.classList.toggle('modo-noturno');
+    
+    if (body.classList.contains('modo-noturno')) {
+      botao.innerHTML = '☀️';
+      botao.title = 'Modo Claro';
+    } else {
+      botao.innerHTML = '🌙';
+      botao.title = 'Modo Noturno';
     }
-
-    // Pega todo o texto da página
-    let texto = '';
-    const elementos = document.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li, td, th, span, a');
-    
-    elementos.forEach(el => {
-      if (el.textContent.trim() !== '') {
-        texto += el.textContent + '. ';
-      }
-    });
-
-    if (texto.trim() === '') {
-      alert('Nenhum texto encontrado para ler!');
-      return;
-    }
-
-    // Cria a fala
-    let utterance = new SpeechSynthesisUtterance(texto);
-    
-    // Configure a voz em português (pt-BR)
-    let voices = synth.getVoices();
-    let vozPT = voices.find(v => v.lang.includes('pt'));
-    if (vozPT) utterance.voice = vozPT;
-    
-    utterance.lang = 'pt-BR';
-    utterance.rate = 1;
-    utterance.pitch = 1;
-
-    // Controla o estado
-    utterance.onstart = () => {
-      lendo = true;
-      document.getElementById('btn-ler').classList.add('ativo');
-    };
-
-    utterance.onend = () => {
-      lendo = false;
-      document.getElementById('btn-ler').classList.remove('ativo');
-    };
-
-    synth.speak(utterance);
-  }
-
-  function pararLeitura() {
-    synth.cancel();
-    lendo = false;
-    document.getElementById('btn-ler').classList.remove('ativo');
   }
 
   function resetar() {
     fontSize = 100;
     document.documentElement.style.fontSize = '100%';
-    document.body.classList.remove('contraste-alto');
-    synth.cancel();
-    lendo = false;
+    document.body.classList.remove('modo-noturno');
+    document.getElementById('btn-noturno').innerHTML = '🌙';
+    document.getElementById('btn-noturno').title = 'Modo Noturno';
   }
-
-  // Carrega as vozes (necessário para alguns navegadores)
-  window.speechSynthesis.onvoiceschanged = () => {
-    window.speechSynthesis.getVoices();
-  };
 </script>
 <!-- Fim dos Botões de Acessibilidade -->
