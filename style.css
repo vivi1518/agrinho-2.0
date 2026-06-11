@@ -174,9 +174,10 @@ section{
 ========================== */
 .cards-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
     margin: 40px 0;
+    align-items: stretch;
 }
 
 .card {
@@ -186,6 +187,10 @@ section{
     text-align: center;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     transition: 0.4s ease;
+
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .card:hover {
@@ -233,6 +238,11 @@ section{
     background: #4CAF50;
 }
 
+#sustentavel .container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 /* Responsividade */
 @media (max-width: 992px) {
     .cards-grid {
@@ -272,12 +282,6 @@ blockquote {
     text-align: center;
     line-height: 1.8;
     color: #555;
-}
-
-.cards-fontes {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
 }
 
 .card-fonte {
@@ -469,13 +473,14 @@ img{
 ========================== */
 @media(max-width:768px){
 
-    .cards{
+    .cards-grid{
         grid-template-columns:1fr;
     }
 
     .galeria{
         grid-template-columns:1fr;
     }
+}
 
     nav{
         gap:8px;
