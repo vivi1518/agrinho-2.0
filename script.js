@@ -51,71 +51,65 @@ function toggleGaleria() {
 /* ==========================
    ACESSIBILIDADE
 ========================== */
-/* ===== Controle do tamanho da fonte ===== */
-
 let tamanhoFonte = 100;
 
-document.getElementById("aumentarFonte")
-    .addEventListener("click", () => {
+function alterarFonte(valor){
 
-    tamanhoFonte += 10;
+    tamanhoFonte += valor * 10;
+
+    if(tamanhoFonte < 70){
+        tamanhoFonte = 70;
+    }
+
+    if(tamanhoFonte > 150){
+        tamanhoFonte = 150;
+    }
 
     document.documentElement.style.fontSize =
         tamanhoFonte + "%";
-});
+}
 
-document.getElementById("diminuirFonte")
-    .addEventListener("click", () => {
+function alternarTema(){
 
-    if (tamanhoFonte > 70) {
-        tamanhoFonte -= 10;
+    document.body.classList.toggle("dark");
 
-        document.documentElement.style.fontSize =
-            tamanhoFonte + "%";
-    }
-});
+    localStorage.setItem(
+        "tema",
+        document.body.classList.contains("dark")
+        ? "dark"
+        : "light"
+    );
+}
 
+if(localStorage.getItem("tema") === "dark"){
 
-/* ===== Modo escuro ===== */
+    document.body.classList.add("dark");
+}
 
-document.getElementById("alternarTema")
-    .addEventListener("click", () => {
-
-    document.body.classList.toggle("modo-escuro");
-});
-
-
-/* ===== Leitura por voz ===== */
-
-let fala;
-
-document.getElementById("lerConteudo")
-    .addEventListener("click", () => {
+function lerPagina(){
 
     speechSynthesis.cancel();
 
-    /* Seleciona apenas o conteúdo principal */
     const principal =
         document.querySelector("main");
 
-    if (!principal) {
-        alert(
-            "Adicione uma tag <main> ao conteúdo principal."
-        );
+    if(!principal){
         return;
     }
 
     let texto = "";
 
-    /* Lê apenas títulos e parágrafos */
-    principal.querySelectorAll(
-        "h1, h2, h3, h4, h5, h6, p, li"
-    ).forEach(elemento => {
+    principal
+    .querySelectorAll(
+        "h1,h2,h3,h4,h5,h6,p,li"
+    )
+    .forEach(elemento => {
 
         texto += elemento.innerText + ". ";
     });
 
-    fala = new SpeechSynthesisUtterance(texto);
+    const fala =
+        new SpeechSynthesisUtterance(texto);
 
     fala.lang = "pt-BR";
     fala.rate = 1;
@@ -123,18 +117,12 @@ document.getElementById("lerConteudo")
     fala.volume = 1;
 
     speechSynthesis.speak(fala);
-});
+}
 
-
-/* ===== Parar leitura ===== */
-
-document.getElementById("pararLeitura")
-    .addEventListener("click", () => {
+function pararLeitura(){
 
     speechSynthesis.cancel();
-});
-
-
+}
 /* ==========================
    AJUSTE DE TELA
 ========================== */
