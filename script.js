@@ -1,7 +1,4 @@
 ```javascript
-/* ==========================
-   SAUDAÇÃO PERSONALIZADA
-========================== */
 
 function saudacao() {
 
@@ -23,9 +20,9 @@ function saudacao() {
     }
 }
 
-/* ==========================
+/* 
    GALERIA
-========================== */
+*/
 
 function toggleGaleria() {
 
@@ -48,9 +45,9 @@ function toggleGaleria() {
     }
 }
 
-/* ==========================
+/* 
    ACESSIBILIDADE
-========================== */
+*/
 // Controle do tamanho da fonte
 let tamanhoFonte = 100;
 
@@ -94,9 +91,9 @@ function pararLeitura() {
     speechSynthesis.cancel();
 }
 
-/* ==========================
+/*
    AJUSTE DE TELA
-========================== */
+*/
 
 function ajustarTela() {
 
@@ -121,9 +118,9 @@ window.addEventListener(
     ajustarTela
 );
 
-/* ==========================
+/*
    LOADER
-========================== */
+*/
 
 window.addEventListener("load", () => {
 
@@ -139,9 +136,9 @@ window.addEventListener("load", () => {
     }, 1500);
 });
 
-/* ==========================
+/*
    BOTÃO VOLTAR AO TOPO
-========================== */
+*/
 
 window.addEventListener(
     "DOMContentLoaded",
