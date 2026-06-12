@@ -24,9 +24,9 @@ body{
 
 
 
-/* ==========================
+/*
    NAVEGAÇÃO
-========================== */
+*/
 nav{
     background:#2e8b57;
     padding:15px;
@@ -56,9 +56,9 @@ nav a{
     cursor:pointer;
 }
 
-/* ==========================
+/*
    HERO
-========================== */
+*/
 .hero {
     position: relative;
     min-height: 100vh;
@@ -124,9 +124,9 @@ nav a{
 
     background: #f0f0f0;
 }
-/* ==========================
+/*
    BOTÕES
-========================== */
+*/
 .btn{
     display:inline-block;
     margin-top:15px;
@@ -141,18 +141,18 @@ nav a{
     transform:translateY(-2px);
 }
 
-/* ==========================
+/*
    SEÇÕES
-========================== */
+*/
 section{
     width:min(95%,1200px);
     margin:auto;
     padding:80px 20px;
 }
 
-/* ==========================
+/* 
    CARDS
-========================== */
+*/
 .cards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -224,9 +224,9 @@ section{
     margin: 0 auto;
 }
 
-/* ==========================
+/*
    SUSTENTABILIDADE
-========================== */
+*/
 
 #sustentavel .cards-grid{
     display:grid;
@@ -377,9 +377,9 @@ blockquote {
 .observacao p {
     line-height: 1.8;
 }
-/* ==========================
+/*
    GALERIA
-========================== */
+*/
 .galeria{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -392,9 +392,9 @@ blockquote {
     object-fit:cover;
     border-radius:12px;
 }
-/* ==========================
-   VÍDEO
-========================== */
+/* 
+VIDEO
+*/
 iframe{
     width:100%;
     aspect-ratio:16/9;
@@ -402,9 +402,9 @@ iframe{
     border-radius:12px;
 }
 
-/* ==========================
+/*
    FORMULÁRIOS
-========================== */
+*/
 input,
 textarea,
 button{
@@ -423,9 +423,9 @@ button:hover{
     color:white;
 }
 
-/* ==========================
+/*
    FOOTER
-========================== */
+*/
 footer{
     background:#2e8b57;
     color:white;
@@ -433,9 +433,9 @@ footer{
     padding:20px;
 }
 
-/* ==========================
+/*
    LOADER
-========================== */
+*/
 #loader{
     position:fixed;
     inset:0;
@@ -463,9 +463,9 @@ footer{
     }
 }
 
-/* ==========================
+/*
    ACESSIBILIDADE
-========================== */
+*/
 #acessibilidade{
     position:fixed;
     right:15px;
@@ -499,9 +499,9 @@ footer{
     }
 }
 
-/* ==========================
-   RESPONSIVIDADE CORRIGIDA
-========================== */
+/*
+   RESPONSIVIDADE
+*/
 
 @media (max-width: 768px){
 
@@ -537,10 +537,6 @@ footer{
     }
 }
 
-/* ==========================
-   FULL HD
-========================== */
-
 @media (min-width: 1920px){
     html{
         font-size: 18px;
@@ -550,10 +546,6 @@ footer{
         max-width: 1800px;
     }
 }
-
-/* ==========================
-   ULTRAWIDE
-========================== */
 
 @media (min-width: 2560px){
     html{
@@ -569,17 +561,17 @@ footer{
     }
 }
 
-/* ==========================
+/*
    IMAGENS
-========================== */
+*/
 img{
     max-width:100%;
     display:block;
 }
 
-/* ==========================
+/*
    CELULARES
-========================== */
+*/
 @media(max-width:768px){
 
     .cards-grid{
@@ -620,9 +612,7 @@ img{
     }
 
 }
-/* ==========================
-   FULL HD
-========================== */
+
 @media(min-width:1920px){
 
     html{
@@ -634,9 +624,6 @@ img{
     }
 }
 
-/* ==========================
-   ULTRAWIDE
-========================== */
 @media(min-width:2560px){
 
     html{
